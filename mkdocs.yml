@@ -1,0 +1,33 @@
+site_name: Foundations Atlas
+docs_dir: docs/api_docs/sources
+site_description: 'Documentation for Foundations Atlas, a platform for end-to-end machine learning. Created by Dessa.'
+theme:
+  name: 'material'
+  custom_dir: 'theme'
+  logo: 'favicon.png'
+  favicon: 'favicon.ico'
+  palette:
+    primary: 'blue'
+    accent: 'light blue'
+extra:
+  social:
+    - type: 'medium'
+      link: 'https://medium.com/@dessa_'
+    - type: 'twitter'
+      link: 'https://twitter.com/dessa'
+    - type: 'linkedin'
+      link: 'https://www.linkedin.com/company/dessa1/'
+
+dev_addr: '0.0.0.0:8000'
+
+nav:
+  - Home: index.md
+  - Overview:
+      - Quickstart Guide: ceQuickStartGuide.md
+  - Atlas Modes:
+      - Introduction: atlas-modes/modes.md
+      - Execution: atlas-modes/execution.md
+      - Scheduling: atlas-modes/scheduling.md
+  - The GUI: ceTheGUI.md
+  - Python SDK: sdk-reference/SDK.md
+  - The CLI: ceCliReference.md
