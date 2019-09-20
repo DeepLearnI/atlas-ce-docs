@@ -2,15 +2,16 @@
 
 ![Dessa](assets/dessa_logo_dark-print_horizontal.jpg "Logo Title Text 1")
 
-Welcome to the Atlas Community Edition User Documentation! 
-In the following sections, you will get a more in-depth understanding of Atlas' capabilities and how to use them. 
+Welcome to the Atlas Community Edition user documentation!
+
+In the following sections, you will get a more in-depth understanding of Atlas CE's capabilities and how to use them. 
 You can also check out the CLI and the SDK reference documentation to find further information.
 
-To learn more about the entirety of the platform and how we can accommodate your needs, please reach out to us [here](https://dessa.com/contact/).
+To learn more about the entirety of the Atlas platform, including Atlas Enterprise Edition, and how we can accommodate your needs, please reach out to us [here](https://dessa.com/contact/).
 
 <h2>What is Atlas CE?</h2>
 
-Atlas is a platform designed to manage and improve the machine learning workflow from experimentation to production. 
+Atlas CE is a platform designed to manage and improve the machine learning workflow from experimentation to production. 
 
 Atlas CE provides the following core features:
 
@@ -32,4 +33,5 @@ Atlas CE consists of the following core modules:
 ## License
 
 Copyright (C) DeepLearning Financial Technologies Inc. - All Rights Reserved
+
 Unauthorized copying, distribution, reproduction, publication, use of this library, via any medium is strictly prohibited. Proprietary and confidential.

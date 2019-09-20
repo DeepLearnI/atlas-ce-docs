@@ -19,8 +19,6 @@ training loss graph per epoch, you will see it live in the artifact viewer. Pres
 The project directory is a centralized location for all available projects that have been created within Atlas.
 You can find your project here, under the same name as the job from which it was launched.
 
-> NOTE: For more info on how jobs are named, head to ![TODO](Link-to-how-jobs-are-named)
-
 ---
 
 ### Job Details page
@@ -44,7 +42,7 @@ The **status** can be in 1 of 4 states:
  3. Completed, a green circle with a white check mark
  4. Error, a red circle with a white exclamation mark
  
-> NOTE: If you get an error state, you can check the logs of a job at any point with the CLI ![TODO](Link-to-get-logs).
+> NOTE: If you get an error state, you can check the logs of a job at any point with the CLI [TODO]().
 
 **Launched** gives a recorded time of when the job launched.
 
@@ -53,7 +51,7 @@ The **status** can be in 1 of 4 states:
 **User** in Atlas CE is your machines username.
 
 The **tags** section is really useful, this shows any tag that is attached to a given job. Tags are explained more in
-![TODO](Link-to-tag-section).
+![TODO](https://dessa-atlas-community-docs.readthedocs-hosted.com/en/latest/sdk-reference/SDK/).
 
 #### Parameters
 

@@ -306,7 +306,7 @@ import pandas as pd
 
 df = pd.DataFrame([[1, 2, 3]])
 
-directory = foundations.artifacts.create_syncable_directory("directory_key", "sync/path")
+directory = foundations.create_syncable_directory("directory_key", "sync/path")
 df.to_csv("sync/path/hello.csv")
 directory.upload()
 ```
@@ -317,7 +317,7 @@ If the job gives back the job ID *42*, you can use this to read the saved files 
 import foundations
 import pandas as pd
 
-directory = foundations.artifacts.create_syncable_directory("directory_key", "sync/path", "42")
+directory = foundations.create_syncable_directory("directory_key", "sync/path", "42")
 df = pd.read_csv("sync/path/hello.csv")
 ```
 
@@ -327,7 +327,7 @@ If you want to write back to the same directory, do so the same way that you did
 import foundations
 import pandas as pd
 
-directory = foundations.artifacts.create_syncable_directory("directory_key", "sync/path", "42")
+directory = foundations.create_syncable_directory("directory_key", "sync/path", "42")
 df = pd.read_csv("sync/path/hello.csv")
 
 new_df = df + 3

@@ -11,7 +11,7 @@ This will bring up all of the Atlas services, including the GUI which is availab
 ### Modes of Operation
 Atlas CE runs in two modes.
 
-1. **Execution**: In execution mode, code is run in an existing local environment that you already have setup. Atlas provides ~~experiment version control~~, tracks your experiments and any associated metadata (e.g. hyper-parameters, metrics, artifacts) that you choose to track. 
+1. **Execution**: In execution mode, code is run in an existing local environment that you already have setup. Atlas provides experiment version control, tracks your experiments and any associated metadata (e.g. hyper-parameters, metrics, artifacts) that you choose to track. 
 
 2. **Scheduling**: In scheduling mode, Atlas CE queues your experiment with the local Atlas scheduler which runs it in a containerized environment. This mode gives you the ability to queue a large number of experiments as well as leverage common containerized tools such as NVIDIA Rapids.
 

@@ -4,14 +4,20 @@
 
 **Prerequisites**
  1. Docker version \>18.09
+
  2. Python \>3.6
+
  3. \>10GB of free machine storage
+
  4. The `atlas_installer.py` file
 
 **Installation Steps**
  1. Create a new, empty directory where you will install Atlas CE
+
  2. Copy the `atlas_installer.py` file into this directory
+
  3. [Optional] Create and activate a Python \>3.6 virtual environment to minimize dependency issues
+
  4. Run the install script with `python atlas_installer.py`
  
 > TIP: Running `python atlas_installer.py --help` will give you troubleshooting advice if the script isn't working as expected. 
@@ -25,7 +31,10 @@ downloaded, you can run it using `python atlas_installer.py -d` to skip the down
 
 After completing the installation step, you can do the following to start Atlas CE:
  1. Validate that you are in the same Python environment that you ran the installation script in
- 2. Run `atlas-server start`. _Tip: You can start Atlas Server with GPU support by running `atlas-server start -g`_
+ 
+ 2. Run `atlas-server start`.
+ _Tip: Alternatively, you can start Atlas Server with GPU support by running `atlas-server start -g`_
+ 
  3. Validate the startup by going to the [GUI](http://localhost:5555)
 
 ---

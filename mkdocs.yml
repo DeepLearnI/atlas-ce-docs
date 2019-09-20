@@ -31,3 +31,6 @@ nav:
   - The GUI: ceTheGUI.md
   - Python SDK: sdk-reference/SDK.md
   - The CLI: ceCliReference.md
+  - Tutorials:
+      - Nvidia RAPIDS Tutorial:  tutorials/rapids_tutorial.md
+      - CIFAR Tutorial:  tutorials/cifar_tutorial.md
