@@ -1,8 +1,8 @@
 # Atlas Community Edition
 
-![Dessa](assets/dessa_logo_dark-print_horizontal.jpg "Logo Title Text 1" =250x)
+![Dessa](assets/dessa_logo_dark-print_horizontal.jpg "Logo Title Text 1")
 
-Welcome to the Atlas Community Edition user documentation!
+Welcome to the Atlas Community Edition (CE) user documentation!
 
 In the following sections, you will get a more in-depth understanding of Atlas CE's capabilities and how to use them. 
 You can also check out the CLI and the SDK reference documentation to find further information.
