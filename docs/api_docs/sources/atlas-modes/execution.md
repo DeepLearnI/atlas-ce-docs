@@ -134,7 +134,7 @@ print("Complete!")
 
 To retrieve the archive for a job run in execution mode, navigate to the GUI and copy the Job ID for the job of interest. 
 Job archives ar stored under the `job_data/<job_id>/artifacts` folder in your Foundations home directory (default: `~/.foundations`).
-This job archive is the state of the project working directory at the time the job was executed.
+This job archive is the state of the project working directory at the end of the job.
 
 Scheduling mode allows for use of the CLI to retrieve job archives amongst several additional features.     
 
