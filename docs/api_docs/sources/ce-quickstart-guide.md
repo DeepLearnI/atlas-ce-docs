@@ -31,7 +31,7 @@ downloaded, you can run it using `python atlas_installer.py -d` to skip the down
 After completing the [installation section](#installation), you can do the following to start Atlas CE:
 
  1. Validate that you are in the same Python environment that you ran the installation script in
- 2. Run `atlas-server start`. You can also start Atlas Server with GPU support by running `atlas-server start -g`_
+ 2. Run `atlas-server start`. You can also start Atlas Server with GPU support by running `atlas-server start -g`
  3. Validate the GUI starting up by going to the [GUI](http://localhost:5555)
 
 ---
