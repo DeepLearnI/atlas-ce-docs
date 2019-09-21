@@ -32,7 +32,7 @@ __Example__
 
 ```python
 import foundations
-foundations.log_param("learning_rate", 0.001)
+foundations.log_param("learning rate", 0.001)
 ```
 
 ## Log parameter dictionary
@@ -61,8 +61,8 @@ __Example__
 
 ```python
 import foundations
-foundations.log_params({"learning_rate":0.001,
-                        "batch_size":32,
+foundations.log_params({"learning_rate": 0.001,
+                        "batch_size": 32,
                         "epochs": 75})
 ```
 
