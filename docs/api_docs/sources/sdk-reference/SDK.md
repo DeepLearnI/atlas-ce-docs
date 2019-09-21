@@ -1,6 +1,6 @@
 <h1>SDK Reference</h1>
 
-## Log Parameter
+## Log parameter
 
 Log an individual input parameter when it is called. After job is finished, parameter is accessible programmatically or through GUI. Can log
 additional values to an already existing parameter.
@@ -32,7 +32,7 @@ import foundations
 foundations.log_param("learning_rate", 0.001)
 ```
 
-## Log Parameter Dictionary
+## Log parameter dictionary
 
 Log an individual input parameter when it is called. After job is finished, parameter is accessible programmatically or through GUI. Can log
 additional values to an already existing parameter.
@@ -130,7 +130,7 @@ import foundations
 foundations.set_tag("CNN")
 ```
 
-## Save Artifact
+## Save artifact
 Logs an artifact to a job when called. Artifacts can be images, audio clips, text files or serialized python objects. The artifact must be saved to disk first
 
 ```python
@@ -270,7 +270,7 @@ Sample `foundations_job_parameters.json`:
 params = foundations.load_parameters()
 ```
 
-## Syncable Directories
+## Syncable directories
 
 Foundations offers an interface to sync a directory within a job to a centralized location outside of that job. This directory can then be synced from a different job,
 allowing you to grab information from past jobs to know what has happened in before or build on the shoulders of giants (with giants being your own previous work).
@@ -337,3 +337,16 @@ directory.upload()
 
 > NOTE: To access the the directory that a job uploaded to, in the state that you expect, always use that job's ID. Example: If you have 5 jobs that all read and write to
 a syncable directory with the same key, always use the previous job's ID.
+
+## Syncing Tensorboard log directory
+
+An extra special form of a syncable directory provides the ability to sync a regular Tensorboard logdir to a centralized storage location. Doing this not only allows you to retrieve
+files later while tying them to a specific job, but also automatically adds a tag to the job for you. Any job that has this tag can be sent to a Tensorboard server directly from the GUI.
+
+```python
+foundations.set_tensorboard_logdir(path)
+``` 
+
+__Arguments__
+
+- __path__ (str): The path to your Tensorboard logdir within the jobs environment.
