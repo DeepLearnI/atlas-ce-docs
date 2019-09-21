@@ -23,14 +23,14 @@ dev_addr: '0.0.0.0:8000'
 nav:
   - Home: index.md
   - Overview:
-      - Quickstart Guide: ceQuickStartGuide.md
+      - Quickstart Guide: ce-quickstart-guide.md
   - Walkthrough:
       - Introduction: atlas-modes/modes.md
       - Execution: atlas-modes/execution.md
       - Scheduling: atlas-modes/scheduling.md
-  - GUI: ceTheGUI.md
+  - GUI: gui.md
   - Python SDK: sdk-reference/SDK.md
-  - CLI: ceCliReference.md
+  - CLI: cli.md
   - Tutorials:
       - Nvidia RAPIDS Tutorial:  tutorials/rapids_tutorial.md
       - CIFAR Tutorial:  tutorials/cifar_tutorial.md
