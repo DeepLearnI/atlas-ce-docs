@@ -132,8 +132,9 @@ train_model(params["learning_rate"], params["epochs"])
 ```
 
 This not only makes it easy to specify a lot of different parameter values in one centralized location, but also makes tracking easier when running multiple jobs.
-In addition, by using this function, Atlas will automatically track the parameter values for the job on the GUI and SDK so manual parameter logging using `foundations.log_param()` is not required. 
-Check out our [UPDATE THIS SDK reference](../load_parameters/) for more information.
+In addition, by using this function, Atlas will automatically track the parameter values for the job on the GUI and SDK so manual parameter logging using `foundations.log_param()` is not required.
+
+See the [`log_param](https://dessa-atlas-community-docs.readthedocs-hosted.com/en/latest/sdk-reference/SDK/#log-parameter) docs for more info.
 
 ### Retrieving logs and job archives 
 #### Viewing logs
