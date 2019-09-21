@@ -89,10 +89,6 @@ __Raises__
 
 - __TypeError__: When a value of a non-supported type is provided as the metric value.
 
-__Notes__
-
-If this function is called by code not deployed through Foundations, no metrics will be tracked. Currently there is a bug using "`:`" characters in metric keys, so it's required to use strings without them.
-
 __Example__
 
 ```python
