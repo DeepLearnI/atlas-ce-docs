@@ -96,6 +96,8 @@ want to see in Tensorboard and click the "SEND TO TENSORBOARD" button.
 
 *A new tab will open in your browser with a Tensorboard server that has each job as a selectable run in the bottom left.*
 
+> NOTE: If the jobs don't appear as expected, try refreshing your browser page.
+
 #### Filtering columns
 
 If you log very many parameters or metrics, you may find that you would like to
