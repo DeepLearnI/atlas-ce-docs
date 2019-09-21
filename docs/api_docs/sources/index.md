@@ -1,6 +1,6 @@
 # Atlas Community Edition
 
-![Dessa](assets/dessa_logo_dark-print_horizontal.jpg "Logo Title Text 1")
+![Dessa](assets/dessa_logo_dark-print_horizontal.jpg "Logo Title Text 1" =250x)
 
 Welcome to the Atlas Community Edition user documentation!
 
