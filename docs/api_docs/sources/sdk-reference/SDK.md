@@ -2,8 +2,7 @@
 
 ## Log parameter
 
-Log an individual input parameter when it is called. After job is finished, parameter is accessible programmatically or through GUI. Can log
-additional values to an already existing parameter.
+Logs an individual input parameter when it is called. While the job is running, the logged parameter is accessible programmatically or through the GUI as long as the job has reached this function call. Multiple calls with the same key during the same job will overwrite the existing parameter.
 
 **Python**
 
@@ -20,10 +19,6 @@ __Arguments__
 __Returns__
 
 - This function doesn't return a value.
-
-__Notes__
-
-If this function is called by code not deployed through Foundations, no metrics will be tracked.
 
 __Example__
 
