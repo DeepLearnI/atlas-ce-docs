@@ -46,7 +46,7 @@ The **status** can be in 1 of 4 states:
 
  4. Error, a red circle with a white exclamation mark
  
-> NOTE: If you get an error state, you can check the logs of a job at any point with the CLI [TODO]().
+> NOTE: If you get an error state, you can check the logs of a job at any point using the `foundations get logs` CLI command.
 
 **Launched** gives a recorded time of when the job launched.
 
