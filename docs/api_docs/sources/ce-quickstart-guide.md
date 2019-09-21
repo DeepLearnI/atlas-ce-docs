@@ -7,11 +7,8 @@
 **Prerequisites**
 
  1. Docker version \>18.09
-
  2. Python \>3.6
-
  3. \>10GB of free machine storage
-
  4. The `atlas_installer.py` file
 
 **Installation Steps**
