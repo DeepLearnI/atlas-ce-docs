@@ -89,11 +89,16 @@ __Raises__
 
 - __TypeError__: When a value of a non-supported type is provided as the metric value.
 
+__Note__
+
+Multiple calls with the same key during the same job will create and append to a list containing the previously logged values.
+
 __Example__
 
 ```python
 import foundations
-foundations.log_metric("accuracy", 0.99)
+foundations.log_metric("accuracy", 0.90)
+foundations.log_metric("accuracy", 0.93)
 ```
 
 ## Set tag
