@@ -2,7 +2,7 @@
 
 ## Log parameter
 
-Logs an individual input parameter when it is called. While the job is running, the logged parameter is accessible programmatically or through the GUI as long as the job has reached this function call. Multiple calls with the same key during the same job will overwrite the existing parameter.
+Logs an individual input parameter when it is called. While the job is running, the logged parameter is accessible programmatically or through the GUI as long as the job has reached this function call.
 
 **Python**
 
@@ -12,13 +12,17 @@ foundations.log_param(key, value)
 
 __Arguments__
 
-- __key__ (str): The name of the input parameter. Can reuse already defined keys.
+- __key__ (str): The name of the input parameter.
 
 - __value__ (number, str, bool, array of [number|str|bool], array of array of [number|str|bool]): the value associated with the given input parameter.
 
 __Returns__
 
 - This function doesn't return a value.
+
+__Note__
+
+Multiple calls with the same key during the same job will overwrite the existing parameter.
 
 __Example__
 
