@@ -24,13 +24,13 @@ nav:
   - Home: index.md
   - Overview:
       - Quickstart Guide: ceQuickStartGuide.md
-  - Atlas Modes:
+  - Walkthrough:
       - Introduction: atlas-modes/modes.md
       - Execution: atlas-modes/execution.md
       - Scheduling: atlas-modes/scheduling.md
-  - The GUI: ceTheGUI.md
+  - GUI: ceTheGUI.md
   - Python SDK: sdk-reference/SDK.md
-  - The CLI: ceCliReference.md
+  - CLI: ceCliReference.md
   - Tutorials:
       - Nvidia RAPIDS Tutorial:  tutorials/rapids_tutorial.md
       - CIFAR Tutorial:  tutorials/cifar_tutorial.md

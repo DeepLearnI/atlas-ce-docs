@@ -202,7 +202,7 @@ foundations.submit(scheduler_config="scheduler",
 Retrieve metadata, hyper-parameters, metrics & tags for all jobs associated with a project 
 
 ```python
-foundations.save_artifact(filepath, key)
+foundations.get_metrics_for_all_jobs(project_name, include_input_params=False)
 ```
 
 __Arguments__

@@ -2,7 +2,7 @@
 
 ### Introduction
 
-![Overview page](../../theme/assets/images/overview.png "Overview page")
+![Overview page](assets/images/overview.png "Overview page")
 
 Foundations Atlas helps you easily add record keeping into your modeling workflow — something essential in the modern-day modeling lifecycle.
 
@@ -27,7 +27,7 @@ This page shows all information on any job that has run under a given project.
 
 A given job row will typically look like the following:
 
-![Job detail row](../../theme/assets/images/job-details-page-job-row.png "Job detail row")
+![Job detail row](assets/images/job-details-page-job-row.png "Job detail row")
 
 #### Job Details
 
@@ -37,9 +37,13 @@ The **Job ID** is exactly as stated and allows us to retrieve information throug
 the string of characters will copy the ID to your clipboard.
 
 The **status** can be in 1 of 4 states:
+ 
  1. Queued, a yellow circle
+ 
  2. Running, a green loading circle
+
  3. Completed, a green circle with a white check mark
+
  4. Error, a red circle with a white exclamation mark
  
 > NOTE: If you get an error state, you can check the logs of a job at any point with the CLI [TODO]().
@@ -102,7 +106,7 @@ restrict the columns that are displayed to only those that you wish to focus on.
 
 ### Job Details modal
 
-At the far right of each job row is a "details" icon that opens a modal that will give information
+At the far right of each job row is a job details icon that opens a modal that will give information
 about a specific job that doesn't really fit into a table. 
 
 #### Tags

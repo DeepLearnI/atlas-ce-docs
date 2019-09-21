@@ -5,16 +5,11 @@ This mode is ideal for first time users of Atlas.
 It is well suited for running single experiments at a time and incorporating the SDK into existing code to enable metadata tracking and experiment versioning.
 
 ### Creating a project
-Now, let's create the following project structure:
+Now, let's create a project directory called `my_atlas_project` with a `main.py` inside, with the follow contents:
 
-`my_atlas_project`
- ```
- .
- +-- main.py 
- ```
-
-`main.py`
 ```python
+# main.py
+
 import foundations
 print("Hello world!")
 ``` 
@@ -22,7 +17,7 @@ print("Hello world!")
 Let's run this script using `python main.py ` and observe what happens in the GUI. 
 We see that a new project called `my_atlas_project` has been created with a single *job* inside.    
 
-![Job Details](../../images/my_atlas_project.png)
+![Job Details](../../assets/images/my_atlas_project.png)
 
 This import statement is all that's needed to get started with experiment version control. 
 Everytime you execute this script, a new Job UUID associated with that run will be generated and the project directory will be versioned and archived. 
@@ -32,7 +27,7 @@ You can use this Job UUID to retrieve an archived version of the project directo
 In the next few sections, we'll walk through a simple model training exercise to demonstrate the experiment tracking and version control features that come out-of-the-box in Execution mode. To follow along, you'll need to install scikit-learn into the current environment using:
 `pip intall scikit-learn`
 
-### Tracking Hyper-parameters & metrics
+### Tracking hyper-parameters & metrics
 
 Let's now import the MNIST dataset and train a simple logistic regression model to predict the digit. Modify your `main.py` to look like this:
 
@@ -61,7 +56,7 @@ print("Complete!")
 
 Let's run this script again and take a look at the experiment in the GUI. We'll see a running job in the GUI which should complete after a few minutes. We'll also see the `max_iter` hyper-parameter logged as well as the `accuracy` metric logged once the job is complete.
 
-![metrics](../../images/param_metric_logging.png)
+![metrics](../../assets/images/param_metric_logging.png)
 
 We use the `(key, value)` syntax to log hyperparameters and metrics. Please refer to the SDK Reference for additional information on how to log hyper-parameters and metrics.
  
@@ -95,12 +90,12 @@ print("Complete!")
 
 Now we'll see tags appear next to our jobs. Multiple tags can be added to experiments in the same way to quickly gain context on the experiment 
 
-![Tags](../../images/tags.png)
+![Tags](../../assets/images/tags.png)
 
 ### Saving artifacts
 Artifacts associated with experiments can include images, audio files, text files and python objects. Images & audio can be viewed directly in the GUI and all artifacts can be downloaded from the GUI by click on the job detail icon on the right hand side of the screen. 
 
-The artifact must first be saved to disk before saving it within Atlas. Let's save our trained model so it can be used later. The syntax is `save_artifact(filepath, key)` 
+The artifact must first be saved to disk before saving it within Atlas. Let's save our trained model so it can be used later. The syntax is `save_artifact(filepath, key)`.
 
 ```python
 import foundations
@@ -133,7 +128,7 @@ foundations.save_artifact("model.pkl", "Model")
 print("Complete!")
 ```
 
-![Saved Artifact](../../images/saved_artifact.png)
+![Saved Artifact](../../assets/images/saved_artifact.png)
 
 ### Retrieving job archives 
 
