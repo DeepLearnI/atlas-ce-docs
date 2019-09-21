@@ -121,10 +121,6 @@ __Raises__
 
 - __TypeError__: When a value of a non-supported type is provided as the tag value.
 
-__Notes__
-
-If a tag is updated multiple times, Foundations will update the tag to the newest value, but return a warning indicating that the key has been updated.
-
 __Example__
 
 ```python
