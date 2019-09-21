@@ -2,7 +2,7 @@
 
 ## Log parameter
 
-Logs an individual input parameter when it is called. While the job is running, the logged parameter is accessible programmatically or through the GUI as long as the job has reached this function call.
+Logs an individual input parameter when it is called. Logged parameters are accessible programmatically or through the GUI as soon as this function is called within your job.
 
 **Python**
 
@@ -20,6 +20,10 @@ __Returns__
 
 - This function doesn't return a value.
 
+__Raises__
+
+- __TypeError__: When a value of a non-supported type is provided as the metric value.
+
 __Note__
 
 Multiple calls with the same key during the same job will overwrite the previously logged value.
@@ -33,8 +37,7 @@ foundations.log_param("learning_rate", 0.001)
 
 ## Log parameter dictionary
 
-Log an individual input parameter when it is called. After job is finished, parameter is accessible programmatically or through GUI. Can log
-additional values to an already existing parameter.
+Similar to [log_param](#log-parameter), but accepts a dictionary of key-value pairs.
 
 **Python**
 
@@ -44,16 +47,15 @@ foundations.log_params({})
 
 __Arguments__
 
-- __dict__ : Dictionary of parameters to log. 
+- __dict__ : Dictionary of parameters to log. Each key-value pair needs to satisfy the same constraints as that of [log_param](#log_parameter)
 
+__Raises__
+
+- __TypeError__: When a value of a non-supported type is provided as the metric value.
 
 __Returns__
 
 - This function doesn't return a value.
-
-__Notes__
-
-Dict values can include `int`, `float` and `string`
 
 __Example__
 
@@ -66,8 +68,8 @@ foundations.log_params({"learning_rate":0.001,
 
 ## Log metric
 
-Logs a metric when it is called. Logged metrics are accessible programmatically or through GUI as soon as this line runs within your job.
-e.g. this can happen at the and of every epoch to get updated metrics
+Logs a metric when it is called. Logged metrics are accessible programmatically or through GUI as soon as this function is called within your job.
+e.g. this can happen at the end of every epoch to get updated metrics live.
 
 ```python
 foundations.log_metric(key, value)
