@@ -67,8 +67,6 @@ Parameters consist of any input to your code or model that change how it runs.
 If you launch a job with a new parameter that no other jobs have had before, a new column will appear
 with that parameter. All jobs that do not log this parameter will have "*not available*" in this column.
 
-A guide on how to log parameters can be found ![TODO](Link-to-logging-params).
-
 > NOTE: If there are too many columns, this section can be horizontally scrolled and can also be filtered.
 
 #### Metrics
@@ -81,8 +79,6 @@ Metrics consist of any output of your code or model that describes how it ran.
 If you launch a job with a new metric that no other job has had before, a new column will appear
 with that metric. All jobs that do not log this metric will have "*not available*" in this column.
 
-A guide on how to log metrics can be found ![TODO](Link-to-logging-metrics).
-
 > NOTE: If there are too many columns, this section can be horizontally scrolled and can also be filtered.
 
 #### Send to Tensorboard
@@ -90,7 +86,7 @@ A guide on how to log metrics can be found ![TODO](Link-to-logging-metrics).
 Atlas offers the ability for the user to log files that Tensorboard would normally read, place them in a stored location,
 and then — seamlessly in the GUI — open a Tensorboard server for those stored files.
 
-To use this feature, make sure that your code uses the ![TODO](Link-to-SDK) command. Any job that uses this function will
+To use this feature, make sure that your code uses the `set_tensorboard_logdir()` SDK command. Any job that uses this function will
 automatically be tagged with the Tensorboard logo. Then, simply select the checkbox beside the job (or jobs) that you
 want to see in Tensorboard and click the "SEND TO TENSORBOARD" button.
 
@@ -118,7 +114,7 @@ tags after a job has completed can be really useful for more precise record keep
 
 #### Artifacts
 
-By saving files in your code using ![TODO](Link-to-save-artifact), you can view and retrieve these files through the GUI.
+By saving files in your code using, you can view and retrieve these files through the GUI.
 
 If you log a photo or an audio file, you can interact with it on this page.
 
