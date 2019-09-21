@@ -178,7 +178,7 @@ Jobs can be deleted using the following command:
 `foundations delete job scheduler <job_id>`
 
 Only completed or failed jobs can be deleted. Deleting a job removes it from the GUI and deletes the associated job archive. 
-*Note: sudo access may be required for deleting jobs*  
+*Note: sudo access will be required for deleting jobs, this means that you will be prompted for a password*  
 
 ### Job Configuration
 The job configuration file allows for configuration of job related metadata, execution environments & resources. 
