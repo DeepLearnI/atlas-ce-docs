@@ -22,7 +22,7 @@ __Returns__
 
 __Note__
 
-Multiple calls with the same key during the same job will overwrite the existing parameter.
+Multiple calls with the same key during the same job will overwrite the previously logged value.
 
 __Example__
 
