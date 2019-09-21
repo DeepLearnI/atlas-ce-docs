@@ -15,20 +15,20 @@ Atlas CE is a platform designed to manage and improve the machine learning workf
 
 Atlas CE provides the following core features:
 
-**- Experiment Management & Tracking:** Tag experiments and easily track hyperparameters, metrics & artifacts such as images, GIFs & audio clips in a web-based GUI to track the performance of your models. 
+**- Experiment Management & Tracking:** Tag experiments and easily track hyperparameters, metrics, and artifacts such as images, GIFs, and audio clips in a web-based GUI to track the performance of your models
 
-**- Job queuing & scheduling:** Launch and queue thousands of experiment variations to run fully utilize your system resource  
+**- Job queuing & scheduling:** Launch and queue thousands of experiment variations to fully utilize your system resources 
 
-**- Collaboration & Bookkeeping:** Keep a journal of thoughts, ideas & comments on projects.   
+**- Collaboration & Bookkeeping:** Keep a journal of thoughts, ideas, and comments on projects
  
-**- Reproducibility:** Maintain an audit trail of every single experiment you run, complete with code & any saved items.
+**- Reproducibility:** Maintain an audit trail of every single experiment you run, complete with code and any saved items
 
 ## What components does Atlas CE have?
 Atlas CE consists of the following core modules:  
 
-* GUI - Dockerized web application to view job status for various projects.  
-* Foundations SDK & CLI - Programatic and command-line interfaces for Atlas.    
-* Local Scheduler - Scheduler which is used for job orchestration and management. 
+* GUI - A Dockerized web application to view job status for various projects.  
+* Foundations SDK & CLI - A programmatic and command-line interfaces for Atlas.    
+* Local Scheduler - A scheduler which is used for job orchestration and management.
 
 ## License
 
