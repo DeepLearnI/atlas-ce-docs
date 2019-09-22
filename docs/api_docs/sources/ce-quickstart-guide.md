@@ -9,20 +9,22 @@
  1. Docker version \>18.09
  2. Python \>3.6
  3. \>10GB of free machine storage
- 4. The `atlas_installer.py` file
+ 4. The `atlas_ce_installer.py` file
+
+ Currently Atlas CE supports Mac and Linux systems. Windows support to come.
 
 **Steps**
 
  1. Create a new, empty directory where you will install Atlas CE
- 2. Copy the `atlas_installer.py` file into this directory
+ 2. Copy the `atlas_ce_installer.py` file into this directory
  3. [Optional] Create and activate a Python \>3.6 virtual environment to minimize dependency issues
- 4. Run the install script with `python atlas_installer.py`
+ 4. Run the install script with `python atlas_ce_installer.py`
  
-> TIP: Running `python atlas_installer.py --help` will give you troubleshooting advice if the script isn't working as expected. 
+> TIP: Running `python atlas_ce_installer.py --help` will give you troubleshooting advice if the script isn't working as expected. 
 
 
 > TIP: The longest part of the script is downloading the Atlas CE package, if the script fails after this package is
-downloaded, you can run it using `python atlas_installer.py -d` to skip the download step and use the local file. 
+downloaded, you can run it using `python atlas_ce_installer.py -d` to skip the download step and use the local file. 
 
 ---
 
