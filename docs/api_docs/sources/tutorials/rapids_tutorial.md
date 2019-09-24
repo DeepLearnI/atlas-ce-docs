@@ -131,7 +131,6 @@ worker:
 
 Open `preprocessing_test.py` in an editor and make the following changes:
 
-### 1)
 Under
 
 ```python
@@ -149,9 +148,6 @@ import cudf
 foundations.log_param('cuDF version', cudf.__version__)
 ```
 
-
-### 2)
-
 Under
 
 ```
@@ -168,7 +164,7 @@ df2 = cudf.from_pandas(df2)
 df3 = cudf.from_pandas(df3)
 ```
 
-### 3) 
+
 Done! All we had to do was convert our pandas DataFrames to cuDF DataFrames. The standard interfaces are mostly the same. 
 
 
