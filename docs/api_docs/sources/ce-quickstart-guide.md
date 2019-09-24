@@ -6,7 +6,7 @@
 
 **Prerequisites**
 
- 1. Docker version \>18.09
+ 1. Docker version \>18.09 ([Docker installation instructions](https://docs.docker.com/install/))
  2. Python \>3.6
  3. \>10GB of free machine storage
  4. The `atlas_ce_installer.py` file
