@@ -8,7 +8,7 @@ Please make sure your changes are pushed to all relevant branches.
 
 # How to add a page #
 
-Add a new entry to the relevant part of the tree in the `nav` section in `mkdocs.yml`. The path to provide is relative to this repo's `atlas-ce-docs/docs/api_docs/sources` directory.
+Add a new entry to the relevant part of the tree in the `nav` section in `mkdocs.yml`. The path to provide is relative to this repo's `atlas-ce-docs/docs/api_docs/sources` directory, which should point to any new pages that you intend to add. The pages must be in markdown.
 
 # How to compile #
 You must have admin access to our [readthedocs site](https://readthedocs.com/projects/dessa-atlas-community-docs/) in order to build the docs from the repo.
