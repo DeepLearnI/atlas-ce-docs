@@ -32,5 +32,6 @@ nav:
   - Python SDK: sdk-reference/SDK.md
   - CLI: cli.md
   - Tutorials:
-      - Nvidia RAPIDS Tutorial:  tutorials/rapids_tutorial.md
       - CIFAR Tutorial:  tutorials/cifar_tutorial/README.md
+      - Auction Price Regression Tutorial: tutorials/auction_price_regression_tutorial.md
+      - Nvidia RAPIDS Tutorial:  tutorials/rapids_tutorial.md
