@@ -1,31 +1,41 @@
-#  Foundations Atlas Tutorial
+# Foundations Atlas Tutorial
 
 *Estimated time: 30 minutes*
 
-Find code for this tutorial [here](https://github.com/DeepLearnI/cifar-demo).
+Find code for this tutorial [here](https://github.com/DeepLearnI/cifar-tutorial).
 
 ## Introduction
 
 This tutorial demonstrates how to make use of the features of Foundations Atlas. Note that any machine learning
-job can be run in Atlas without modification. However, with minimal changes to the code we can take advantage of Atlas features that will enable us to launch many jobs and organize our model experiments more systematically.
+job can be run in Atlas without modification. However, with minimal changes to the code we can take advantage of 
+Atlas features that will enable us to launch many jobs and organize our model experiments more systematically.
 
-This tutorial assumes that you have already installed Foundations Atlas. If you have not then you can download Atlas community edition for free from [atlas.dessa.com](https://www.atlas.dessa.com/).
+This tutorial assumes that you have already installed Foundations Atlas. If you have not then you can download 
+Foundations Atlas community edition for free from [this link](https://www.atlas.dessa.com/).
 
-In this tutorial we make use of the CIFAR-10 dataset. This is an image recognition dataset consisting of 60,000 32x32 RGB images. These images belong to 10 categories including: dogs, cats, boats, cars, etc...
+## Downloading the code and data
 
-Run the following script from the project directly to download the data and get started.
-
+The first thing you'll need to do is clone the repository and cd into it by running:
+```shell script
+git clone https://github.com/DeepLearnI/cifar-tutorial.git cifar_tutorial
+cd cifar_demo
 ```
+
+In this tutorial we make use of the CIFAR-10 dataset. This is an image recognition dataset consisting of 60,000 32x32
+RGB images. These images belong to 10 categories including: dogs, cats, boats, cars, etc...
+
+Run the following script to download the data and get started:
+
+```shell script
 python download_data.py
 ```
 
 ## Enabling Atlas Features
 
 You are provided with the following python scripts:
-
-* **driver.py**: A driver script which downloads the dataset, prepares it for model training and evaluation, trains a simple 
+* driver.py: A driver script which downloads the dataset, prepares it for model training and evaluation, trains a simple 
 convolutional network, then evaluates the model on the test set
-* **model.py**: Code to implement the convolutional network
+* model.py: Code to implement the convolutional network
 
 Note that this is a fairly standard implementation and runs without any modification.
 
@@ -76,22 +86,21 @@ are generated at each epoch through a callback, you can find the code in train()
 Lastly, create a file in the project directory named "job.config.yaml", and copy the text from below into the file. 
 
 ```yaml
-project_name: 'cifar_demo'
+project_name: 'cifar-demo'
 log_level: INFO
 ```
 
 ## Running a Job
 
-Activate the environment in which you have foundations installed, then from inside the project directory (cifar_demo)
-run the script to submit a single job:
+Activate the environment in which you have foundations installed, then from inside the project directory (cifar-demo)
+run the following command:
 
+```shell script
+foundations submit scheduler . driver.py
 ```
-python driver.py
-```
 
-This will schedule a job to be run. Now open the Atlas GUI in your browser: http://localhost:5555/projects. 
-
-Click into the project 'cifar_demo', then click on the "Job Details" tab. Here, you'll see the running job. Once it completes, it will have a green status and you will 
+This will schedule a job to be run. Now open the Atlas GUI in your browser: http://localhost:5555/projects. Click into 
+the project 'cifar-demo', then click on the "Job Details" tab. Here, you'll see the running job. Once it completes, it will have a green status and you will 
 see your logged metrics.
 
 To view your saved artifacts, you can click on the expansion icon to the right of the running job, then click on the 
@@ -168,9 +177,9 @@ Replace that block with the following:
 hyperparameters = foundations.load_parameters()
 ```
 
-Now, to run the hyperparameter search, from the project directory (cifar_demo) simply run 
+Now, to run the hyperparameter search, from the project directory (cifar-demo) simply run 
 
-```
+```shell script
 python hyperparameter_search.py
 ```
 
@@ -181,5 +190,3 @@ running and completed jobs, compare model hyperparemeters and performance, as we
 visualizations on TensorBoard. 
 
 Do you have any thoughts or feedback for Foundations Atlas? Join the [Dessa Slack community](https://dessa-community.slack.com/join/shared_invite/enQtNzY5MTA3OTMxNTkwLWUyZDYzM2JmMDk0N2NjNjVhZDU5NTc1ODEzNzJjMzRlMDcyYmY3ODI1ZWMxYTQ3MzdmNjcyOTVhMzg2MjkwYmY)!
-
-
