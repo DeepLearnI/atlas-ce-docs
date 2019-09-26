@@ -2,13 +2,13 @@
 
 ### Installation
 
-*Estimated time: 20 minutes (depending on internet connection)*
+*Estimated time: 3 minutes (depending on internet connection)*
 
 **Prerequisites**
 
  1. Docker version \>18.09 ([Docker installation instructions](https://docs.docker.com/install/))
  2. Python \>3.6
- 3. \>10GB of free machine storage
+ 3. \>5GB of free machine storage
  4. The `atlas_ce_installer.py` file
 
  Currently Atlas CE supports Mac and Linux systems. Windows support to come.
@@ -46,5 +46,5 @@ After completing the [start-up section](#start-up), follow the next few steps to
  2. Run `foundations init hello-atlas` to create an example project
  3. Navigate into the newly created `hello-atlas` directory
  4. [Optional] Feel free to look at the code and files; `main.py` is a good starting place
- 5. Run the sample code provided by running `python main.py`
+ 5. Run the sample code provided by running `python main.py`. **Note: when you run a job for the first time it will download the appropriate worker image needed. This will take roughly 1.5 minutes**
  6. Head to the [GUI](http://localhost:5555/projects) to see what we just launched!
