@@ -1,6 +1,6 @@
 # Atlas Community Edition
 
-![Atlas](assets/images/atlas_trimmed.png "Logo Title Text 1")
+![Atlas](assets/images/trimmed_3.png "Logo Title Text 1")
 
 ## What is Atlas?
 
