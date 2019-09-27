@@ -1,6 +1,12 @@
 site_name: Foundations Atlas
 docs_dir: docs/api_docs/sources
 site_description: 'Documentation for Foundations Atlas, a platform for end-to-end machine learning. Created by Dessa.'
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
 theme:
   name: 'material'
   custom_dir: 'theme'
@@ -9,6 +15,7 @@ theme:
   palette:
     primary: 'blue'
     accent: 'light blue'
+
 extra:
   social:
     - type: 'medium'
@@ -32,5 +39,7 @@ nav:
   - Python SDK: sdk-reference/SDK.md
   - CLI: cli.md
   - Tutorials:
+      - CIFAR Tutorial:  tutorials/cifar_tutorial.md
+      - Auction Price Regression Tutorial: tutorials/auction_price_regression_tutorial.md
       - Nvidia RAPIDS Tutorial:  tutorials/rapids_tutorial.md
-      - CIFAR Tutorial:  tutorials/cifar_tutorial/README.md
+  - Support & community: support.md
