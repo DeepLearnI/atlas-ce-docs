@@ -8,9 +8,10 @@ Foundations Atlas helps you easily add record keeping into your modeling workflo
 
 Almost every piece of information can be retrieved and examined through the Foundations CLI, but our GUI gives you a better experience than working from a Terminal session does.
 
-> NOTE: Although a refresh button is located on the page, the content per job is available to the GUI *immediately* after the
-line storing the information is run in your code. This means, among other things, that if you are saving a photo of your 
-training loss graph per epoch, you will see it live in the artifact viewer. Press "REFRESH TABLE" to see the changes.
+!!! note
+    Although a refresh button is located on the page, the content per job is available to the GUI *immediately* after the
+    line storing the information is run in your code. This means, among other things, that if you are saving a photo of your 
+    training loss graph per epoch, you will see it live in the artifact viewer. Press "REFRESH TABLE" to see the changes.
 
 ---
 
@@ -45,8 +46,9 @@ The **status** can be in 1 of 4 states:
  3. Completed, a green circle with a white check mark
 
  4. Error, a red circle with a white exclamation mark
- 
-> NOTE: If you get an error state, you can check the logs of a job at any point using the `foundations get logs` CLI command.
+
+!!! note 
+    If you get an error state, you can check the logs of a job at any point using the `foundations get logs` CLI command.
 
 **Launched** gives a recorded time of when the job launched.
 
@@ -67,7 +69,8 @@ Parameters consist of any input to your code or model that change how it runs.
 If you launch a job with a new parameter that no other jobs have had before, a new column will appear
 with that parameter. All jobs that do not log this parameter will have "*not available*" in this column.
 
-> NOTE: If there are too many columns, this section can be horizontally scrolled and can also be filtered.
+!!! note 
+    If there are too many columns, this section can be horizontally scrolled and can also be filtered.
 
 #### Metrics
 
@@ -79,7 +82,8 @@ Metrics consist of any output of your code or model that describes how it ran.
 If you launch a job with a new metric that no other job has had before, a new column will appear
 with that metric. All jobs that do not log this metric will have "*not available*" in this column.
 
-> NOTE: If there are too many columns, this section can be horizontally scrolled and can also be filtered.
+!!! note
+    If there are too many columns, this section can be horizontally scrolled and can also be filtered.
 
 #### Send to Tensorboard
 
@@ -92,7 +96,8 @@ want to see in Tensorboard and click the "SEND TO TENSORBOARD" button.
 
 *A new tab will open in your browser with a Tensorboard server that has each job as a selectable run in the bottom left.*
 
-> NOTE: If the jobs don't appear as expected, try refreshing your browser page.
+!!! note
+    If the jobs don't appear as expected, try refreshing your browser page.
 
 #### Filtering columns
 
@@ -140,8 +145,8 @@ like to see.
 
 This section of the Overview page lets you keep notes as your project evolves. 
 
-> NOTE: If you are running Atlas CE in a shared environment, leaving notes for other data scientists, so they know what
-is going on, will help you collaborate.
+!!! note
+    If you are running Atlas CE in a shared environment, leaving notes for other data scientists, so they know what is going on, will help you collaborate.
 
 #### Overview Markdown
 

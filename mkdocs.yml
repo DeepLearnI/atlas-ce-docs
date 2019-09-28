@@ -4,17 +4,35 @@ site_description: 'Documentation for Foundations Atlas, a platform for end-to-en
 markdown_extensions:
   - admonition
   - codehilite:
-      guess_lang: false
+      guess_lang: true
   - toc:
       permalink: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
 theme:
   name: 'material'
   custom_dir: 'theme'
   logo: 'favicon.png'
   favicon: 'favicon.ico'
   palette:
-    primary: 'blue'
+    primary: "indigo"
     accent: 'light blue'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
 
 extra:
   social:
@@ -24,6 +42,8 @@ extra:
       link: 'https://twitter.com/dessa'
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/dessa1/'
+    - type: 'github'
+      link: https://github.com/dessa-public
 
 dev_addr: '0.0.0.0:8000'
 

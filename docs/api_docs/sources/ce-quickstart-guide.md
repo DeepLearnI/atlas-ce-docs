@@ -20,11 +20,13 @@
  3. [Optional] Create and activate a Python \>3.6 virtual environment to minimize dependency issues
  4. Run the install script with `python atlas_ce_installer.py`
 
-> TIP: Running `python atlas_ce_installer.py --help` will give you troubleshooting advice if the script isn't working as expected.
+!!! tip 
+    Running `python atlas_ce_installer.py --help` will give you troubleshooting advice if the script isn't working as expected.
 
 
-> TIP: The longest part of the script is downloading the Atlas CE package, if the script fails after this package is
-downloaded, you can run it using `python atlas_ce_installer.py -d` to skip the download step and use the local file.
+!!! tip
+    The longest part of the script is downloading the Atlas CE package, if the script fails after this package is
+    downloaded, you can run it using `python atlas_ce_installer.py -d` to skip the download step and use the local file.
 
 ---
 
@@ -34,7 +36,9 @@ After completing the [installation section](#installation), you can do the follo
 
  1. Validate that you are in the same Python environment that you ran the installation script in
  2. Run `atlas-server start`. If you installed Atlas with GPU enabled, you can also start Atlas Server with GPU support by running `atlas-server start -g`
- 3. Validate the GUI is running by going to the [GUI](http://localhost:5555)
+
+!!! success
+    Validate the GUI is running by going to the [GUI](http://localhost:5555). This is your centralized location to track all of your experiments.
 
 ---
 

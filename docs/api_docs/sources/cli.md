@@ -121,7 +121,8 @@ foundations delete job <scheduler-config> <job-id>
 
 Deletes a specified job. Deleting only works for failed or completed jobs.
 
-> NOTE: This will ask for your password as we are deleting a protected directory.
+!!! note
+    This will ask for your password as we are deleting a protected directory.
 
 ### Positional Arguments
 
