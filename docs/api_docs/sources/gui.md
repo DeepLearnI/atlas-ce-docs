@@ -57,7 +57,7 @@ The **status** can be in 1 of 4 states:
 **User** in Atlas CE is your machines username.
 
 The **tags** section is really useful, this shows any tag that is attached to a given job. Tags are explained more in
-[TODO](https://dessa-atlas-community-docs.readthedocs-hosted.com/en/latest/sdk-reference/SDK/).
+the [SDK Reference](https://dessa-atlas-community-docs.readthedocs-hosted.com/en/latest/sdk-reference/SDK/).
 
 #### Parameters
 
