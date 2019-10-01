@@ -27,7 +27,7 @@ The `foundations submit` CLI command is used to submit jobs to a scheduler.
 We can submit our `main.py` to the scheduler for execution as follows:
 
 ```python
-foundatons submit scheduler . main.py
+foundations submit scheduler . main.py
 ``` 
 
 Once this command is executed, we'll start seeing logs streaming in the console:
@@ -52,10 +52,12 @@ The `job_dir` refers to the project directory which is `.` and `command` in this
 `command` refers to the Docker command to run inside the worker container. We can pass add additional arguments to `command` in case our script accepts command-line arguments. Please refer to the CLI documentation for additional details on the `foundations submit` command.
 
 ### Adding project requirements
-The Atlas Worker is based on a GPU version of the official [tensorflow image](https://hub.docker.com/layers/tensorflow/tensorflow/1.13.2-gpu-py3-jupyter/images/sha256-1ff5a56100a03bbad26a819521746ca6cf58ff1ee06f5ce3020cc2ed86961abd) and comes pre-configured with some common dependencies like `scikit-learn` and `xgboost`. 
+The Atlas Worker is based on the official [tensorflow image](https://hub.docker.com/layers/tensorflow/tensorflow/1.13.2-gpu-py3-jupyter/images/sha256-1ff5a56100a03bbad26a819521746ca6cf58ff1ee06f5ce3020cc2ed86961abd) and comes pre-configured with some common dependencies like `scikit-learn` and `xgboost`. 
 However, if certain project-specific python packages are required, they can be added by adding a `requirements.txt` to the project directory. The Atlas Worker is configured to install the requirements.txt at start-up.
 
-_Note: The requirements.txt is installed everytime a job is launched. It is recommended to use a [custom Worker](link/to/section) with project requirements pre-installed to avoid the start-up delay._
+!!! note 
+    The requirements.txt is installed everytime a job is launched. 
+    It is recommended to use a [custom Worker](link/to/section) with project requirements pre-installed to avoid the start-up delay._
  
 ### Hyperparameter Searches
 
