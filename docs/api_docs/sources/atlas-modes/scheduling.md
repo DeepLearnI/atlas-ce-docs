@@ -195,7 +195,7 @@ log_level: INFO
 # Worker config #
 num_gpus: 1
 worker:
-  image: atlas-ce/worker:latest 
+  image: us.gcr.io/atlas-ce/worker:latest 
 
   volumes:
     /my/local/path: 
