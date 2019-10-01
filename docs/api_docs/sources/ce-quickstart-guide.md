@@ -18,12 +18,16 @@ Atlas CE currently supports Mac OSX, Linux & Windows 10.
     Windows 10 Enterprise edition users should use [Docker for Windows](https://docs.docker.com/docker-for-windows/) 
 
 **Common**
+
  1. Create a new, empty directory where you will install Atlas CE
+
  2. Copy the `atlas_ce_installer.py` file into this directory
+
  3. Create and activate a Python \>3.6 virtual environment using 
  [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands)
  or [venv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
  to minimize dependency issues
+
  4. Follow you OS-specific instructions below 
 
 **Linux/OSX**
@@ -31,19 +35,22 @@ Atlas CE currently supports Mac OSX, Linux & Windows 10.
  
 **Windows 10**
  1. Install the following python package into the environment created in step 3: `pip install pypiwin32=223`
+
  2. Run the install script with `python atlas_ce_installer.py`
+
  3. [Windows 10 Home only]: 
     - Open Oracle VirtualBox
     - Right-click on the docker VM and click on `Settings`
     - Select 'Network' in the configuration pane, expand the `Advanced` section and click on `Port Forwarding`
     - Add the following port forwarding rules:
-        | Name | Protocol | Host IP | Host Port | Guest IP | Guest Port |
-        |-----------|----------|-----------|-----------|----------|------------|
-        | Scheduler | TCP | 127.0.0.1 | 5000 |  | 5000 |
-        | GUI | TCP | 127.0.0.1 | 5555 |  | 5555 |
-        | Tracker | TCP | 127.0.0.1 | 5556 |  | 5556 |
-        | Archive | TCP | 127.0.0.1 | 5557 |  | 5557 |
-        | Tboard | TCP | 127.0.0.1 | 5959 |  | 5959 | 
+
+| Name | Protocol | Host IP | Host Port | Guest IP | Guest Port |
+|-----------|----------|-----------|-----------|----------|------------|
+| Scheduler | TCP | 127.0.0.1 | 5000 |  | 5000 |
+| GUI | TCP | 127.0.0.1 | 5555 |  | 5555 |
+| Tracker | TCP | 127.0.0.1 | 5556 |  | 5556 |
+| Archive | TCP | 127.0.0.1 | 5557 |  | 5557 |
+| Tboard | TCP | 127.0.0.1 | 5959 |  | 5959 | 
 
 !!! tip 
     Running `python atlas_ce_installer.py --help` will give you troubleshooting advice if the script isn't working as expected.
