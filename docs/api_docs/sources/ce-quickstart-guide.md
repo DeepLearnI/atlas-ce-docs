@@ -42,7 +42,8 @@ Atlas CE currently supports Mac OSX, Linux & Windows 10.
         | Scheduler | TCP | 127.0.0.1 | 5000 |  | 5000 |
         | GUI | TCP | 127.0.0.1 | 5555 |  | 5555 |
         | Tracker | TCP | 127.0.0.1 | 5556 |  | 5556 |
-        | Archive | TCP | 127.0.0.1 | 5557 |  | 5557 |  
+        | Archive | TCP | 127.0.0.1 | 5557 |  | 5557 |
+        | Tboard | TCP | 127.0.0.1 | 5959 |  | 5959 | 
 
 !!! tip 
     Running `python atlas_ce_installer.py --help` will give you troubleshooting advice if the script isn't working as expected.
