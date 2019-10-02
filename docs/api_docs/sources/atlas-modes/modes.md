@@ -4,7 +4,7 @@
 To get started with Atlas, activate the virtual environment (if any) that was used to install Atlas server. Next, let's make sure Atlas Server is running by doing:
 `atlas-server start`
 
-*Note: Alternatively, you can use `atlas start -g` to bring up Atlas server with GPU support*
+*Note: Alternatively, you can use `atlas-server start -g` to bring up Atlas server with GPU support*
 
 This will bring up all of the Atlas services, including the GUI which is available at [http://localhost:5555](http://localhost:5555) by default.
 

@@ -49,7 +49,8 @@ model.fit(X_train, y_train)
 
 print("Evaluating model...")
 accuracy = model.score(X_test, y_test)*100
-foundations.log_metric("Accuracy", accuracy)
+
+foundations.log_metric("Accuracy", accuracy.item())
 print("Complete!")
 ```
 
@@ -83,7 +84,7 @@ model.fit(X_train, y_train)
 
 print("Evaluating model...")
 accuracy = model.score(X_test, y_test)*100
-foundations.log_metric("Accuracy", accuracy)
+foundations.log_metric("Accuracy", accuracy.item())
 print("Complete!")
 ```
 
@@ -118,7 +119,7 @@ model.fit(X_train, y_train)
 
 print("Evaluating model...")
 accuracy = model.score(X_test, y_test)*100
-foundations.log_metric("Accuracy", accuracy)
+foundations.log_metric("Accuracy", accuracy.item())
 
 print("Saving model...")
 pickle.dump(model, open("model.pkl", "wb"))
