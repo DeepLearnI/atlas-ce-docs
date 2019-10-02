@@ -71,6 +71,9 @@ foundations.log_params({"learning_rate": 0.001,
 Logs a metric when it is called. Logged metrics are accessible programmatically or through GUI as soon as this function is called within your job.
 e.g. this can happen at the end of every epoch to get updated metrics live.
 
+!!! note 
+    Currently logging numpy types is not supported.
+
 ```python
 foundations.log_metric(key, value)
 ```

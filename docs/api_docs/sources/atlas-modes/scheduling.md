@@ -57,7 +57,7 @@ However, if certain project-specific python packages are required, they can be a
 
 !!! note 
     The requirements.txt is installed everytime a job is launched. 
-    It is recommended to use a [custom Worker](link/to/section) with project requirements pre-installed to avoid the start-up delay._
+    It is recommended to use a [custom Worker](link/to/section) with project requirements pre-installed to avoid the start-up delay.
  
 ### Hyperparameter Searches
 
