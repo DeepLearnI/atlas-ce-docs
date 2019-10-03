@@ -42,8 +42,10 @@ cd auction_price_regression_tutorial
 ## Enabling Atlas Features
 
 You are provided with the following python scripts:
+
 * **driver.py**: A driver script which downloads the dataset, prepares it for model training and evaluation, trains a  
 fully connected network with entity embeddings, then evaluates the model on the test set
+
 * **model.py**: Code to implement the neural network
 
 Note that this code runs without any modification.

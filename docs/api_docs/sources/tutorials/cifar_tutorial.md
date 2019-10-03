@@ -1,4 +1,4 @@
-# Foundations Atlas Tutorial
+# Foundations Atlas Tutorial: CIFAR
 
 *Estimated time: 30 minutes*
 
@@ -33,9 +33,11 @@ python download_data.py
 ## Enabling Atlas Features
 
 You are provided with the following python scripts:
-* driver.py: A driver script which downloads the dataset, prepares it for model training and evaluation, trains a simple 
+
+* **driver.py**: A driver script which downloads the dataset, prepares it for model training and evaluation, trains a simple 
 convolutional network, then evaluates the model on the test set
-* model.py: Code to implement the convolutional network
+
+* **model.py**: Code to implement the convolutional network
 
 Note that this is a fairly standard implementation and runs without any modification.
 
