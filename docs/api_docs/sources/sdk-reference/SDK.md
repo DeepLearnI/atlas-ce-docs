@@ -109,7 +109,7 @@ foundations.log_metric("accuracy", 0.93)
 Sets a tag when it is called. Tags accessible programmatically or through GUI as soon as this line runs within your job. Job tags can also be modified within the GUI.
 
 ```python
-foundations.set_tag(key, value)
+foundations.set_tag(key)
 ```
 
 __Arguments__
