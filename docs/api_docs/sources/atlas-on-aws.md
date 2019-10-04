@@ -9,7 +9,7 @@ Requirements
 
 ## Create instance
 
-First let's go to the AWS developer console, sign in, and then we'll create a new instance: [https://aws.amazon.com/console/](https://aws.amazon.com/console/)
+First let's go to the AWS developer console, sign in, and then we'll create a new instance: <a target="_blank" href="https://aws.amazon.com/console/">AWS console</a>
 
 Go to Services > EC2, then click the **"Launch Instance"** button to start setup.
 
@@ -54,14 +54,12 @@ We recommend increasing the size of your storage to at least 250GB, as the base 
 
 Next, we'll create a new security group to allow for Atlas to securely use a few different ports on our instance. Specifically to allow the GUI, REST API, and archive server.
 
-To allow for this, add the following 3 new rules for the below ports, and for each rule change the "Source" to **My IP**.
+To allow for this:
 
-| Type | Protocol | Port Range | Source | Description
-|-----------|----------|-----------|-----------|----------|
-| SSH | TCP | 22 | My IP (will default to instance IP) | (can leave empty)
-| Custom TCP Rule | TCP | 5555 | My IP (defaults to instance IP) | (can leave empty)
-| Custom TCP Rule | TCP | 5557 | My IP (defaults to instance IP) | (can leave empty)
-| Custom TCP Rule | TCP | 5959 | My IP (defaults to instance IP) | (can leave empty)
+* Add 3 new rules, with ports for 5555, 5557, and 5959
+* Adjust the "Source" to **My IP** for each rule
+
+![Add storage](../assets/images/aws-security-group.png)
 
 Now, click **Review and Launch** to go review our instance before launching. 
 
@@ -71,7 +69,14 @@ Our instance setup should now look similar to the below.
 
 ![Review ](../assets/images/aws-review-instance-launch.png)
 
-Click "Launch" which should then ask you to create a new key pair. Select "Create a new key pair" and give it the name "atlas-ce", and then download the key pair, then click Launch Instances". It should then redirect you to the Launch Status page. Click on your instance name to go to the **Instances** page, which you can then find the IPv4 address of the instance in the lower **Description** panel.
+
+* Click "Launch" which should then ask you to create a new key pair
+* Select "Create a new key pair" and give it the name "atlas-ce" (note: if you've already used this key name before you can either re-use of, or create another unique key name)
+* Download the key pair
+* Click "Launch Instances"
+* It should then redirect you to the Launch Status page
+* Beside "The following instance launches have been initiated" you should see your new instance ID. Click the ID to go to the **Instances** page
+* You can find the IPv4 address of the instance in the lower **Description** panel.
 
 ![aws now launching](../assets/images/aws-now-launching.png)
 
@@ -81,25 +86,23 @@ Be sure to run `chmod 400 <key_name>.pem` on your key before SSH'ing to give it 
  
 `ssh -i /path/to/key/<key_name>.pem  ubuntu@ipv4.of.ec2.instance`
 
-When you first SSH in, the instance will run a few commands which includes activating a conda environment that contains `atlas-server` and `foundations`. It also runs `atlas-server` so all the services for Atlas CE are running.
+**You should expect to wait ~30 seconds when you first SSH in.**
 
-You should also now be able to see the GUI. In your browser go `<ipv4.of.ec2.instance>:5555` and you should see the Atlas CE project page. It'll be empty, so let's start by creating our first project.
+The instance will run a few commands which includes activating a conda environment that contains `atlas-server` and `foundations`. It also runs `atlas-server` so all the services for Atlas CE are running.
+
+When you SSH into the instance, `atlas-server` will start, but you can put it into a background process with `ctrl + c`, to then be able to run other commands.
+
+You should also now be able to see the GUI. In your browser go `<ipv4.of.ec2.instance>:5555` and you should see the Atlas CE project page with two projects that have each been run once. These projects were baked into the AMI to help get started.
 
 ### Run our first Atlas CE job
 
 If this is your first time using Atlas CE, you can try run a simple job with the following steps. Or you can just skip ahead to setting up AWS to remotely work with VSCode below.
 
-To create a simple job to run within the AWS instance we'll need to do the following:
+We can run one of our demo projects to try out how the `foundations` CLI works.
 
-* Activate the conda environment to run Atlas CE: `conda activate atlas_ce_env`
-
-Now you should have access to `foundations` CLI. Next we'll create a template project and run it with Foundations.
-
-* Run `foundations init my-atlas-project`
-* This will create directory `<project_name>` with a scaffolded simple job to run
-* `cd` into the `/my-atlas-project` directory
-* run `foundations submit scheduler . main.py`
-* Go back to the Atlas CE GUI in your browser, and you should see your first project that can be explored
+* `cd cifar-demo`
+* Run `foundations submit scheduler . main.py`
+* Go back to the Atlas CE GUI in your browser, and you should see the new job we've just run
 
 For more information on the Foundations CLI read our CLI section, or run `foundations --help`.
 
@@ -107,15 +110,15 @@ We've now successfully setup a P2 instance with Atlas! In the next section we'll
 
 ## Running jobs remotely via VSCode
 
-A really easy to develop with Atlas locally in VSCode, while having the power of a cloud GPU, is the setup remote deployment in VSCode. This will allow for our code to be synced with our instance, and simply type the `foundations submit` command to run jobs.
+A really easy to develop with Atlas locally in VSCode, while having the power of a cloud GPU, is the setup remote deployment in VSCode. While we also love PyCharm's remote deployment, it's not free, so we'll just use VSCode. This will allow for our code to be synced with our instance, and simply fun `foundations submit ...` commands to run jobs.
 
 Requirements:
 
-* Install [VSCode](https://code.visualstudio.com/)
+* Install <a target="_blank" href="https://code.visualstudio.com/">VSCode</a>
 
-First, open up VSCode, and we'll install the [Remote - SSH plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) that will allow us to open code from the remote instance in VSCode
+First, open up VSCode, and we'll install the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH plugin</a> that will allow us to open code from the remote instance in VSCode
 
-Once the plugin is installed open the Command Palette and select "Remote-SSH: Connect to Host"
+Once the plugin is installed open the Command Palette and select "Remote-SSH: Connect to Host".
 
 ![VSCode plugin ](../assets/images/vscode-install-plugin.png)
 
@@ -138,7 +141,7 @@ Let's first activate the conda environment that comes with the AMI:
 
 We're now set! We can now open `model.py` and adjust as we wish, or you can start on your own project.
 
-If you're looking for more advanced docs on setting up VSCode with AWS, Microsoft has a good setup [guide](https://code.visualstudio.com/docs/remote/ssh#_remembering-hosts-you-connect-to-frequently) with much more detail.
+If you're looking for more advanced docs on setting up VSCode with AWS, Microsoft has a good setup <a target="_blank" href="https://code.visualstudio.com/docs/remote/ssh#_remembering-hosts-you-connect-to-frequently">guide</a> with much more detail.
 
 ## Tear down AWS instance
 
@@ -157,4 +160,4 @@ You can now either start your own projects, or look at some of our more advance 
 
 ### Questions
 
-If you have any thoughts or feedback about setting up Atlas CE on AWS we're always happy to help answer questions on our [Dessa Community Slack](https://dessa-community.slack.com/join/shared_invite/enQtNzY5MTA3OTMxNTkwLWUyZDYzM2JmMDk0N2NjNjVhZDU5NTc1ODEzNzJjMzRlMDcyYmY3ODI1ZWMxYTQ3MzdmNjcyOTVhMzg2MjkwYmY)!
+If you have any thoughts or feedback about setting up Atlas CE on AWS we're always happy to help answer questions on our <a href="https://dessa-community.slack.com/join/shared_invite/enQtNzY5MTA3OTMxNTkwLWUyZDYzM2JmMDk0N2NjNjVhZDU5NTc1ODEzNzJjMzRlMDcyYmY3ODI1ZWMxYTQ3MzdmNjcyOTVhMzg2MjkwYmY" target="_blank">Dessa Community Slack</a>!
