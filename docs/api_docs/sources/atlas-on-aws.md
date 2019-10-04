@@ -22,7 +22,7 @@ Let's use the custom Atlas CE AMI, to do this:
 * Select the AMI that says "Atlas Community Edition on Deep Learning AMI for Ubuntu
 "
 
-![Select AMI](../../assets/images/aws-select-ami.png)
+![Select AMI](../../assets/images/aws-select-ami2.png)
 
 Our custom AMI is just AWS's Deep Learning AMI (Deep Learning AMI (Ubuntu 16.04) Version 24.2) with Atlas CE added on top of it.
 
