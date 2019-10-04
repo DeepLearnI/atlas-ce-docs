@@ -100,8 +100,8 @@ If this is your first time using Atlas CE, you can try run a simple job with the
 
 We can run one of our demo projects to try out how the `foundations` CLI works.
 
-* `cd cifar-demo`
-* Run `foundations submit scheduler . main.py`
+* `cd atlas_tutorials/auction_price_regression_tutorial`
+* Run `foundations submit scheduler . driver.py`
 * Go back to the Atlas CE GUI in your browser, and you should see the new job we've just run
 
 For more information on the Foundations CLI read our CLI section, or run `foundations --help`.
@@ -118,30 +118,40 @@ Requirements:
 
 First, open up VSCode, and we'll install the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH plugin</a> that will allow us to open code from the remote instance in VSCode
 
-Once the plugin is installed open the Command Palette and select "Remote-SSH: Connect to Host".
-
 ![VSCode plugin ](../assets/images/vscode-install-plugin.png)
 
-It will then prompt us to "Add New SSH Host...', where we'll enter the host and user of the instance like so:
+Before we connect to the host in VSCode, let's open the SSH config file, to add this instance to our SSH Config, to easily allows VSCode to connect to our instance.
+
+* Open ~/.ssh/config
+
+Add the following lines:
+
+```
+Host <my.aws.ip.address>
+ IdentityFile ~/.ssh/<key_name>.pem
+ User ubuntu
+```
+
+Once the plugin is installed open the Command Palette and select "Remote-SSH: Connect to Host".
+
+* Open command prompt in VSCode: `Cmd + Shift + P` (or click green "Open Remote Window" botton, bottom left of VSCode)
+* Will then prompt us to "Add New SSH Host...', where we'll enter the host and user of the instance like so:
 
 `ubuntu@<my.aws.ip.address>`
 
-It should open a new VSCode window where we'll be able to select "File" > "Open..." and then select a directory from our instance to open. In our case we can select our `my-atlas-project` which will then open up in VSCode in a new window.
+It should open a new VSCode window where we'll be able to select "File" > "Open..." and then select a directory from our instance to open. In our case we can select our `atlas_tutorials/auction_price_regression_tutorial` project which will then open up in VSCode in a new window.
 
-At the bottom the VSCode window we'll select the "Terminal" tab, and choose "bash" from the drop down that will give us bash shell access to AWS.
+At the bottom the VSCode window we'll select the "Terminal" tab, and click the "+" symbol to open a new shell tab. Choose "bash" from the drop down that will give us bash shell access to AWS.
 
-Let's first activate the conda environment that comes with the AMI:
-
-* `conda activate atlas_ce_env`
-* cd into `my-atlas-project`
-* Let's test that we can run our simple job with  `foundations submit scheduler . main.py`
+* cd into `atlas_tutorials/auction_price_regression_tutorial`
+* Let's test that we can run a job with  `foundations submit scheduler . driver.py`
 * You should see this job in the Atlas CE GUI
 
 ![vscode shell ](../assets/images/vscode-bash-submit.png)
 
-We're now set! We can now open `model.py` and adjust as we wish, or you can start on your own project.
+We're now set! You can now open the files and adjust as you wish, or you can start on your own project. To understand more about the `auction_price_regression` project, you can check out the full tutorial in the **Tutorial** section of the docs.
 
-If you're looking for more advanced docs on setting up VSCode with AWS, Microsoft has a good setup <a target="_blank" href="https://code.visualstudio.com/docs/remote/ssh#_remembering-hosts-you-connect-to-frequently">guide</a> with much more detail.
+If you're looking for more detailed docs on setting up VSCode with AWS, Microsoft has a good setup <a target="_blank" href="https://code.visualstudio.com/docs/remote/ssh#_remembering-hosts-you-connect-to-frequently">guide</a> with much more detail.
 
 ## Tear down AWS instance
 
