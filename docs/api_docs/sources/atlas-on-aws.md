@@ -9,16 +9,16 @@ Requirements
 
 ## Create instance
 
-First let's go to the AWS developer console, to create a new instance: [https://aws.amazon.com/console/](https://aws.amazon.com/console/)
+First let's go to the AWS developer console, sign in, and then we'll create a new instance: [https://aws.amazon.com/console/](https://aws.amazon.com/console/)
 
-Click the **"Create Instance"** button to start setup.
+Go to Services > EC2, then click the **"Launch Instance"** button to start setup.
 
 ### Step 1: Choose an Amazon Machine Image (AMI)
 
 Let's use the custom Atlas CE AMI, to do this:
 
 * Select "Community AMIs" on the left sidebar
-* Search for "AtlasCE"
+* Search for "Atlas CE"
 * Select the AMI that says "Atlas Community Edition on Deep Learning AMI for Ubuntu
 "
 
@@ -39,7 +39,8 @@ Make sure to click **"Next: Configure Instance Details"** to continue provisioni
 
 ### Step 3: Configure Instance Details
 
-* No changes here, just click **"Next: Add Storage"**
+* If your instance does require additional configuration adjust as needed
+* Otherwise there are no changes needed here, just click **"Next: Add Storage"**
 
 ### Step 4: Add Storage
 
@@ -72,17 +73,21 @@ Our instance setup should now look similar to the below.
 
 ![Review ](../../assets/images/aws-review-instance-launch.png)
 
-Click "Launch" which should then ask you to create a new key pair. Select "Create a new key pair" and give it the name "atlas-ce", and then download the key pair, then click Launch Instances".
+Click "Launch" which should then ask you to create a new key pair. Select "Create a new key pair" and give it the name "atlas-ce", and then download the key pair, then click Launch Instances". It should then redirect you to the Launch Status page. Click on your instance name to go to the **Instances** page, which you can then find the IPv4 address of the instance in the lower **Description** panel.
 
-You should then be able to use your download `.pem` key to then SSH into the instance to check that everything is setup.
+![aws now launching](../../assets/images/aws-now-launching.png)
+
+You should then be able to use your downloaded `.pem` key to then SSH into the instance to check that everything is setup.
 
 Be sure to run `chmod 400 <key_name>.pem` on your key before SSH'ing to give it the proper permissions. We also recommend that you move the key to your `~/.ssh/` directory.
  
 `ssh -i /path/to/key/<key_name>.pem  ubuntu@ipv4.of.ec2.instance`
 
-You should also now be able to see the GUI. In your browser go `<ipv4.of.ec2.instance>:5555` and you should see the Atlas CE project page. It'll be empty, so why not start by creating your first project.
+When you first SSH in, the instance will run a few commands which includes activating a conda environment that contains `atlas-server` and `foundations`. It also runs `atlas-server` so all the services for Atlas CE are running.
 
-### Run your first Atlas CE job
+You should also now be able to see the GUI. In your browser go `<ipv4.of.ec2.instance>:5555` and you should see the Atlas CE project page. It'll be empty, so let's start by creating our first project.
+
+### Run our first Atlas CE job
 
 If this is your first time using Atlas CE, you can try run a simple job with the following steps. Or you can just skip ahead to setting up AWS to remotely work with VSCode below.
 
