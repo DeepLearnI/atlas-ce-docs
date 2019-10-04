@@ -47,8 +47,7 @@ dev_addr: '0.0.0.0:8000'
 
 nav:
   - Home: index.md
-  - Overview:
-      - Quickstart Guide: ce-quickstart-guide.md
+  - Quickstart Guide: ce-quickstart-guide.md
   - Walkthrough:
       - Introduction: atlas-modes/modes.md
       - Execution: atlas-modes/execution.md
