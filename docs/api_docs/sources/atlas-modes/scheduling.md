@@ -13,8 +13,14 @@ Use the `foundations init <project_name>` command to create a template project d
 ```python
 foundations init my_project
 ```
-
-![Foundations init](../../assets/images/init_project_structure.png)
+```
+my_project
+|
+|--- README.txt
+|--- data
+|--- job.config.yaml
+|--- main.py
+```
 
 The template provides a sample `main.py` which logs a few arbitrary metrics & saves an artifact to demonstrate in the GUI. 
 We can use this `main.py` to submit our first job to the scheduler.
