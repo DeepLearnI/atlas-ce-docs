@@ -14,24 +14,24 @@
 Atlas CE currently supports Mac OSX, Linux & Windows 10.
 
 !!! tip 
-    Windows 10 Home edition users can setup Atlas CE by installing [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/).
-    Windows 10 Enterprise edition users should use [Docker for Windows](https://docs.docker.com/docker-for-windows/) 
+    Windows 10 Home edition users can set up Atlas CE by installing [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/).
+    Windows 10 Enterprise edition users should use [Docker for Windows](https://docs.docker.com/docker-for-windows/).
 
 **Common**
 
- 1. Create a new, empty directory where you will install Atlas CE
+ 1. Create a new, empty directory where you will install Atlas CE.
 
- 2. Copy the `atlas_ce_installer.py` file into this directory
+ 2. Copy the `atlas_ce_installer.py` file into this directory.
 
  3. Create and activate a Python \>3.6 virtual environment using 
  [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands)
  or [venv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
- to minimize dependency issues
+ to minimize dependency issues.
 
- 4. Follow you OS-specific instructions below 
+ 4. Follow you OS-specific instructions below.
 
 **Linux/OSX**
- 1. Run the install script with `python atlas_ce_installer.py`
+ 1. Run the install script with `python atlas_ce_installer.py`.
  
 **Windows 10**
  1. Install the following python package into the environment created in step 3: `pip install pypiwin32=223`
@@ -39,9 +39,9 @@ Atlas CE currently supports Mac OSX, Linux & Windows 10.
  2. Run the install script with `python atlas_ce_installer.py`
 
  3. [Windows 10 Home only]: 
-    - Open Oracle VirtualBox
-    - Right-click on the docker VM and click on `Settings`
-    - Select 'Network' in the configuration pane, expand the `Advanced` section and click on `Port Forwarding`
+    - Open Oracle VirtualBox.
+    - Right-click on the docker VM and click on `Settings`.
+    - Select 'Network' in the configuration pane, expand the `Advanced` section and click on `Port Forwarding`.
     - Add the following port forwarding rules:
 
 | Name | Protocol | Host IP | Host Port | Guest IP | Guest Port |
@@ -73,7 +73,7 @@ After completing the [installation section](#installation), you can do the follo
     You can also start Atlas Server with GPU support by running `atlas-server start -g`. This will allow Atlas to use all CUDA-enabled GPUs on your system.  
  
 !!! success
-    Validate the GUI is running by going to the [GUI](http://localhost:5555). This is your centralized location to track all of your experiments.
+    Validate that the GUI is running by going to the [GUI](http://localhost:5555). This is your centralized location to track all of your experiments.
 
 ---
 
@@ -81,10 +81,10 @@ After completing the [installation section](#installation), you can do the follo
 
 After completing the [start-up section](#start-up), follow the next few steps to launch your first Atlas CE job:
 
- 1. Navigate to where you'd like to create your Atlas project directory
- 2. Ensure that you are in the environment that was used during installation
- 2. Run `foundations init hello-atlas` to create an example project
- 3. Navigate into the newly created `hello-atlas` directory
+ 1. Navigate to where you'd like to create your Atlas project directory.
+ 2. Ensure that you are in the environment that was used during installation.
+ 2. Run `foundations init hello-atlas` to create an example project.
+ 3. Navigate into the newly created `hello-atlas` directory.
  4. Run the sample code provided by running `python main.py`.
  5. Head to the [GUI](http://localhost:5555/projects) to see your experiment!
 

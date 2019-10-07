@@ -4,12 +4,12 @@ Being able to run Atlas CE on AWS means access to GPUs and faster results. In th
 
 Requirements
 
-* AWS account
+* An AWS account
 
 
 ## Create instance
 
-First let's go to the AWS developer console, sign in, and then we'll create a new instance: <a target="_blank" href="https://aws.amazon.com/console/">AWS console</a>
+First, let's go to the AWS developer console. Sign in, and then we'll create a new instance: <a target="_blank" href="https://aws.amazon.com/console/">AWS console</a>
 
 Go to Services > EC2, then click the **"Launch Instance"** button to start setup.
 
@@ -155,7 +155,7 @@ If you're looking for more detailed docs on setting up VSCode with AWS, Microsof
 
 ## Tear down AWS instance
 
-It's important to be aware that after the instance has been spun up you will incur costs on your account. There are two options: either stop the instance (which will mean costs are minimal to keep your storage around), or throw away the instance completely.
+It's important to be aware that after the instance has been spun up, you will incur costs on your account. There are two options: either stop the instance (which will mean costs are minimal to keep your storage around), or throw away the instance completely.
 
 To stop or terminate the instance:
 
@@ -164,10 +164,10 @@ To stop or terminate the instance:
 
 ![Review ](../assets/images/aws-stop-instance.png)
 
-That's it, we've successfully spun up a GPU instance and run a few jobs remotely from VSCode!
+That's it! We've successfully spun up a GPU instance, and run jobs remotely, from VSCode.
 
-You can now either start your own projects, or look at some of our more advance tutorials to explore more of Atlas CE.
+You can now either start your own projects, or look at some of our more advanced tutorials to explore more of Atlas CE.
 
 ### Questions
 
-If you have any thoughts or feedback about setting up Atlas CE on AWS we're always happy to help answer questions on our <a href="https://dessa-community.slack.com/join/shared_invite/enQtNzY5MTA3OTMxNTkwLWUyZDYzM2JmMDk0N2NjNjVhZDU5NTc1ODEzNzJjMzRlMDcyYmY3ODI1ZWMxYTQ3MzdmNjcyOTVhMzg2MjkwYmY" target="_blank">Dessa Community Slack</a>!
+If you have any thoughts or feedback about setting up Atlas CE on AWS, we're always happy to help answer questions on our <a href="https://dessa-community.slack.com/join/shared_invite/enQtNzY5MTA3OTMxNTkwLWUyZDYzM2JmMDk0N2NjNjVhZDU5NTc1ODEzNzJjMzRlMDcyYmY3ODI1ZWMxYTQ3MzdmNjcyOTVhMzg2MjkwYmY" target="_blank">Dessa Community Slack</a>!

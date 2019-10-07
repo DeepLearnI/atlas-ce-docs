@@ -52,6 +52,7 @@ nav:
       - Introduction: atlas-modes/modes.md
       - Execution: atlas-modes/execution.md
       - Scheduling: atlas-modes/scheduling.md
+      - GPU usage & concurrency: atlas-modes/gpu.md
   - GUI: gui.md
   - Python SDK: sdk-reference/SDK.md
   - CLI: cli.md
