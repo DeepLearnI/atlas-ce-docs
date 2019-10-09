@@ -30,6 +30,18 @@ A given job row will typically look like the following:
 
 ![Job detail row](assets/images/job-details-page-job-row.png "Job detail row")
 
+#### Metrics and Parameters Graph
+
+![Metrics and Parameters Graph](assets/images/parcoords-select.gif "Metrics and Parameters Graph")
+
+You can quickly view all your job information in one glance in this interactive parallel coordinates graph. Each line represents a single job and each selected metric and parameter is its own axis.
+
+You can select via the dropdown menus certain metrics and parameters that you wish you view.
+
+![Metrics and Parameters Columns](assets/images/parcoords-column.gif "Metrics and Parameters Columns")
+
+You can click and drag columns around to view the information in an organized manner. You can also select ranges of values to highlight by dragging across the axes.
+
 #### Job Details
 
 The leftmost section of the job information gives basic information about a specific run.
