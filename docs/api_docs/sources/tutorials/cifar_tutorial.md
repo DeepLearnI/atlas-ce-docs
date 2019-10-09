@@ -18,7 +18,7 @@ Foundations Atlas community edition for free from [this link](https://www.atlas.
 The first thing you'll need to do is clone the repository and cd into it by running:
 ```
 git clone https://github.com/DeepLearnI/cifar-tutorial.git cifar_tutorial
-cd cifar_demo
+cd cifar_tutorial
 ```
 
 In this tutorial we make use of the CIFAR-10 dataset. This is an image recognition dataset consisting of 60,000 32x32
