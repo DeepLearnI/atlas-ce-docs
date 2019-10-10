@@ -61,4 +61,5 @@ nav:
       - Auction Price Regression Tutorial: tutorials/auction_price_regression_tutorial.md
       - Nvidia RAPIDS Tutorial:  tutorials/rapids_tutorial.md
   - Atlas on AWS: atlas-on-aws.md
+  - Atlas on GCP: atlas-on-gcp.md
   - Support & Community: support.md
