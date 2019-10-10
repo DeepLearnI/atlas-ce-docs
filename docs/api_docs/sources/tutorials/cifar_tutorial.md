@@ -57,7 +57,7 @@ and replace the two print statements with them:
 
 ```
 foundations.log_metric('test_loss', float(scores[0]))
-foundations.log_metric('test_accuracy:', float(scores[1]))
+foundations.log_metric('test_accuracy', float(scores[1]))
 ```   
 
 ### Saving Artifacts
