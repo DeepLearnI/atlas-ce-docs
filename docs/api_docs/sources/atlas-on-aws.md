@@ -13,6 +13,9 @@ First, let's go to the AWS developer console. Sign in, and then we'll create a n
 
 Go to Services > EC2, then click the **"Launch Instance"** button to start setup.
 
+!!! note
+    The custom AMI we'll be using for this tutorial is only available in us-east (Ohio), Canada (Central), and EU (Ireland), so you'll need to switch to one of those regions before creating an instance.
+
 ### Step 1: Choose an Amazon Machine Image (AMI)
 
 Let's use the custom Atlas CE AMI, to do this:
