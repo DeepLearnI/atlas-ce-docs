@@ -1,8 +1,4 @@
-# Foundations Atlas Tutorial: CIFAR
-
-*Estimated time: 30 minutes*
-
-Find code for this tutorial [here](https://github.com/DeepLearnI/cifar-tutorial).
+_/
 
 ## Introduction
 
