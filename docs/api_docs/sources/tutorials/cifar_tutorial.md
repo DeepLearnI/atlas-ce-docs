@@ -1,8 +1,4 @@
-# Foundations Atlas Tutorial
-
-*Estimated time: 30 minutes*
-
-Find code for this tutorial [here](https://github.com/DeepLearnI/cifar-tutorial).
+_/
 
 ## Introduction
 
@@ -18,7 +14,7 @@ Foundations Atlas community edition for free from [this link](https://www.atlas.
 The first thing you'll need to do is clone the repository and cd into it by running:
 ```
 git clone https://github.com/DeepLearnI/cifar-tutorial.git cifar_tutorial
-cd cifar_demo
+cd cifar_tutorial
 ```
 
 In this tutorial we make use of the CIFAR-10 dataset. This is an image recognition dataset consisting of 60,000 32x32
@@ -33,9 +29,11 @@ python download_data.py
 ## Enabling Atlas Features
 
 You are provided with the following python scripts:
-* driver.py: A driver script which downloads the dataset, prepares it for model training and evaluation, trains a simple 
+
+* **driver.py**: A driver script which downloads the dataset, prepares it for model training and evaluation, trains a simple 
 convolutional network, then evaluates the model on the test set
-* model.py: Code to implement the convolutional network
+
+* **model.py**: Code to implement the convolutional network
 
 Note that this is a fairly standard implementation and runs without any modification.
 
@@ -55,7 +53,7 @@ and replace the two print statements with them:
 
 ```
 foundations.log_metric('test_loss', float(scores[0]))
-foundations.log_metric('test_accuracy:', float(scores[1]))
+foundations.log_metric('test_accuracy', float(scores[1]))
 ```   
 
 ### Saving Artifacts

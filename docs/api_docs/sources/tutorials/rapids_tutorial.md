@@ -46,8 +46,8 @@ foundations.log_metric("sort time", "{:.4f}".format(time.time() - start_time))
 
 Run our script
 
-```
-$ python preprocessing_test.py 
+```bash
+python preprocessing_test.py 
 ```
 
 ## Create a RAPIDS Docker image for Atlas
@@ -169,10 +169,10 @@ Done! All we had to do was convert our pandas DataFrames to cuDF DataFrames. The
 
 
 
-Now run
+Now run the following to submit your code to the scheduler using the custom Docker image that we created above.
 
-```
-$ python preprocessing_test.py
+```bash
+foundations submit scheduler . main.py
 ```
 
 Go back to the Atlas dashboard. Because we logged `cuDF version` as a parameter, you can check which job used `cuDF`. Compare the metrics and runtimes! 

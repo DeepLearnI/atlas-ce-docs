@@ -49,7 +49,8 @@ model.fit(X_train, y_train)
 
 print("Evaluating model...")
 accuracy = model.score(X_test, y_test)*100
-foundations.log_metric("Accuracy", accuracy)
+
+foundations.log_metric("Accuracy", accuracy.item())
 print("Complete!")
 ```
 
@@ -83,7 +84,7 @@ model.fit(X_train, y_train)
 
 print("Evaluating model...")
 accuracy = model.score(X_test, y_test)*100
-foundations.log_metric("Accuracy", accuracy)
+foundations.log_metric("Accuracy", accuracy.item())
 print("Complete!")
 ```
 
@@ -118,7 +119,7 @@ model.fit(X_train, y_train)
 
 print("Evaluating model...")
 accuracy = model.score(X_test, y_test)*100
-foundations.log_metric("Accuracy", accuracy)
+foundations.log_metric("Accuracy", accuracy.item())
 
 print("Saving model...")
 pickle.dump(model, open("model.pkl", "wb"))
@@ -132,7 +133,7 @@ print("Complete!")
 ### Retrieving job archives
 
 To retrieve the archive for a job run in execution mode, navigate to the GUI and copy the Job ID for the job of interest.
-Job archives ar stored under the `job_data/<job_id>/artifacts` folder in your Foundations home directory (default: `~/.foundations`).
+Job archives are stored under the `job_data/archive/<job_id>/artifacts` folder in your Foundations home directory (default: `~/.foundations`).
 This job archive is the state of the project working directory at the end of the job.
 
 Scheduling mode allows for use of the CLI to retrieve job archives amongst several additional features.     

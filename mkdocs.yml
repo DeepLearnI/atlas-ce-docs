@@ -4,17 +4,33 @@ site_description: 'Documentation for Foundations Atlas, a platform for end-to-en
 markdown_extensions:
   - admonition
   - codehilite:
-      guess_lang: false
+      guess_lang: true
   - toc:
       permalink: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
 theme:
   name: 'material'
   custom_dir: 'theme'
   logo: 'favicon.png'
   favicon: 'favicon.ico'
   palette:
-    primary: 'blue'
+    primary: "indigo"
     accent: 'light blue'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
 
 extra:
   social:
@@ -24,17 +40,19 @@ extra:
       link: 'https://twitter.com/dessa'
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/dessa1/'
+    - type: 'github'
+      link: https://github.com/dessa-public
 
 dev_addr: '0.0.0.0:8000'
 
 nav:
   - Home: index.md
-  - Overview:
-      - Quickstart Guide: ce-quickstart-guide.md
+  - Quickstart Guide: ce-quickstart-guide.md
   - Walkthrough:
       - Introduction: atlas-modes/modes.md
       - Execution: atlas-modes/execution.md
       - Scheduling: atlas-modes/scheduling.md
+      - GPU usage & concurrency: atlas-modes/gpu.md
   - GUI: gui.md
   - Python SDK: sdk-reference/SDK.md
   - CLI: cli.md
@@ -44,5 +62,7 @@ nav:
       - Nvidia RAPIDS Tutorial:  tutorials/rapids_tutorial.md
       - Fake Trump Tweet Classifier Tutorial: tutorials/fake_trump_tutorial.md
       - Image Segmentation Tutorial: tutorials/image_segmentation_tutorial.md
-
+      - Audio Deep Fake Detection Tutorial: tutorials/fake_audio_detection.md
+  - Atlas on AWS: atlas-on-aws.md
+  - Atlas on GCP: atlas-on-gcp.md
   - Support & Community: support.md

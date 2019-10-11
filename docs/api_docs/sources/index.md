@@ -2,6 +2,13 @@
 
 ![Atlas](assets/images/trimmed_3.png "Logo Title Text 1")
 
+![Platform Support](https://img.shields.io/badge/platform-osx%20%7C%20linux-lightgrey "platform")
+![Python Support](https://img.shields.io/badge/python-%3E3-brightgreen "python")
+![Signups to download](https://img.shields.io/badge/Signups%20to%20download-640-brightgreen "downloads")
+[![File issues](https://img.shields.io/github/issues/dessa-public/atlas)](https://github.com/dessa-public/atlas/issues)
+[![Follow Dessa](https://img.shields.io/twitter/follow/dessa?label=Follow%20Dessa&style=social)](https://twitter.com/dessa)
+
+
 ## What is Atlas?
 
 Atlas was built by our machine learning engineers to dramatically reduce the model development time, from the experimentation workflow to production.
