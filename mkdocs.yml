@@ -42,4 +42,7 @@ nav:
       - CIFAR Tutorial:  tutorials/cifar_tutorial.md
       - Auction Price Regression Tutorial: tutorials/auction_price_regression_tutorial.md
       - Nvidia RAPIDS Tutorial:  tutorials/rapids_tutorial.md
+      - Fake Trump Tweet Classifier Tutorial: tutorials/fake_trump_tutorial.md
+      - Image Segmentation Tutorial: tutorials/image_segmentation_tutorial.md
+
   - Support & Community: support.md
