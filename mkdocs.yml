@@ -60,7 +60,7 @@ nav:
       - CIFAR Tutorial:  tutorials/cifar_tutorial.md
       - Auction Price Regression Tutorial: tutorials/auction_price_regression_tutorial.md
       - Nvidia RAPIDS Tutorial:  tutorials/rapids_tutorial.md
-      - Audio Deep Fake Detection Tutorial: tutorials/fake_audio_detection.md
+      - Audio Deep Fake Detection Tutorial: tutorials/fake_audio_detection_tutorial.md
   - Atlas on AWS: atlas-on-aws.md
   - Atlas on GCP: atlas-on-gcp.md
   - Support & Community: support.md

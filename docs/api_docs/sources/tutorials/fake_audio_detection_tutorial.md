@@ -1,16 +1,16 @@
-# Foundations Atlas Tutorial
+# DeepFake Audio Detection
 
 *Estimated time: 30 minutes*
 
 Find code for this tutorial [here](https://github.com/dessa-public/fake-voice-detection).
-
-## DeepFake Audio 
 
 With the popularity and capabilities of audio deep fakes on the rise, creating defenses against deep fakes used for malicious 
 intent is becoming more important than ever. 
 
 We built a fake audio detection model with Foundations Atlas, for anyone to use. 
 If you'd like to read more about why we decided to build this, [click here](https://medium.com/@dessa_/detecting-audio-deepfakes-f2edfd8e2b35).
+
+Here are two examples of short audio clips in `./data/example_clips/` folder. One of them is real and the other is fake.
 
 This repository provides the code for a fake audio detection model built using Foundations Atlas. 
 It also includes a pre-trained model and inference code, which you can test on any of your own audio files. 
@@ -62,10 +62,9 @@ You can view the  Atlas GUI (https://localhost:5555) to see the model training, 
 If you'd like to see our model architecture, or make changes to the model architecture, you can find the model code in `utils.py` in 
 the `Discriminator_Model` class. Make changes as you please to see if you can improve the model!
 
-
 ## Using the Pre-trained Model 
 
-This is simple baseline model that we created to get you started. It achieves 85% accuracy and 0.58 f1 score on the test set.
+We are providing our pre-trained model which is saved on the Amazon S3 bucket. If you ran `bash downlaod_data.sh` then you should see a folder named `fitted_objects/` created inside the `code/` directory inside which you will find the pre-trained model.  This is simple baseline model that we created to get you started. It achieves 85% accuracy and 0.58 f1 score on the test set.
 
 To run our pre-trained model on your own audio:
 1. Copy your audio files to `data/inference_data/unlabeled/` 
@@ -79,7 +78,6 @@ Once the run completes, you should see a print out with information on predictio
 your provided data, as well as which examples it got right, and which it got wrong. 
 
 
-
 ## Running a Hyperparameter Search
 
 Foundations Atlas makes it super easy to run a hyperparameter search. In the `constants.py` file, you can find `generate_config()` function  with the baseline hyperparameters that we searched over. You can replace these with any hyperparemters you want, to use for your model; once 
@@ -91,3 +89,12 @@ python submit_jobs.py
 
 Now you should be able to see your running and queued jobs on the Atlas GUI. 
 
+
+## Foundations Atlas GUI
+You can view the  Atlas GUI (https://localhost:5555) to see the model training, view saved artifacts, or see the model on TensorBoard. Here are a few images of the gui:
+
+![Experiment Tracker](https://github.com/dessa-public/fake-voice-detection/blob/master/readme_images/gui.png?raw=true)
+
+![Artifact Viewer](https://github.com/dessa-public/fake-voice-detection/blob/master/readme_images/artifact_viewer.png?raw=true)
+
+![Tensorboard Integration](https://github.com/dessa-public/fake-voice-detection/blob/master/readme_images/tensorboard_integration.png?raw=true)
