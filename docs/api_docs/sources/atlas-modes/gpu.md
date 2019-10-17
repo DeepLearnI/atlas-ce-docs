@@ -1,4 +1,6 @@
-### GPU mode & concurrency
+<h1>GPU mode & concurrency</h1>
+---
+
 By default, Atlas runs all of your jobs without GPUs on the machine. Luckily, if you are hoping to run this on a machine and use the GPUs, it's pretty simple.
 
 Just run `atlas-server start -g` and you're off to the races.
