@@ -1,8 +1,4 @@
-# Foundations Atlas Tutorial: CIFAR
-
-*Estimated time: 30 minutes*
-
-Find code for this tutorial [here](https://github.com/DeepLearnI/cifar-tutorial).
+_/
 
 ## Introduction
 
@@ -57,7 +53,7 @@ and replace the two print statements with them:
 
 ```
 foundations.log_metric('test_loss', float(scores[0]))
-foundations.log_metric('test_accuracy:', float(scores[1]))
+foundations.log_metric('test_accuracy', float(scores[1]))
 ```   
 
 ### Saving Artifacts

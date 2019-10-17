@@ -63,7 +63,7 @@ However, if certain project-specific python packages are required, they can be a
 
 !!! note 
     The requirements.txt is installed everytime a job is launched. 
-    It is recommended to use a [custom Worker](link/to/section) with project requirements pre-installed to avoid the start-up delay.
+    It is recommended to use a [custom Worker](https://dessa-atlas-community-docs.readthedocs-hosted.com/en/latest/atlas-modes/scheduling/#custom-workers) with project requirements pre-installed to avoid the start-up delay.
  
 ### Hyperparameter Searches
 
