@@ -14,9 +14,6 @@ First let's go to the GCP developer console, sign in, and then we'll create a ne
 
 This VM will give us access to an instance with a GPU, as well as built-in libraries like Docker, and Tensorflow.
 
-!!! note
-    Once the instance has been finalized and spun up, costs will be incurred. Please follow the tear down steps at the bottom of this guide to minimize this.
-
 Click the **"Launch on compute engine"** button to start setup.
 
 ![create instance](../assets/images/gcp-create-instance.png)
@@ -52,7 +49,6 @@ We can take this command and run it in our terminal to SSH into the instance. Ma
 
 Once inside the instance we now need to install Atlas CE. We've put together a script that does a lot of the leg work (create environments and installing Atlas CE).
 
-* Make sure you're in your home directory. You can make sure of this by running `cd ~`
 * To get the script, we'll run `wget https://gist.githubusercontent.com/pippinlee/d2b98a7ff058e66b558bfb331f3a4635/raw/36e6119935180e232437107fd8a77e7c2a40841b/install_atlas.sh`. This will give us the Atlas CE installer file
 * Running `bash install_atlas.sh` will install Atlas CE and start it running within Docker
 * Next we'll source the conda environment created by Atlas by running `source ~/.bashrc` and then `conda activate atlas_ce_env`
@@ -90,10 +86,17 @@ Requirements:
 First, open up VSCode, and we'll install the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH plugin</a> that will allow us to open code from the remote instance in VSCode
 
 ![VSCode plugin ](../assets/images/vscode-install-plugin.png)
+First, open up VSCode, and we'll install the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH plugin</a> that will allow us to open code from the remote instance in VSCode:
+
+- Open extensions via the left bar menu (or by pressing `shift + cmd + X`)
+- Search for `remote-ssh`
+- install the plugin
+
+![VSCode plugin ](../assets/images/vscode-install-plugin.png)
 
 Before we connect to the host in VSCode, let's open the SSH config file, to add this instance to our SSH Config, to easily allows VSCode to connect to our instance.
 
-* Open ~/.ssh/config
+* Open `~/.ssh/config` (Create it if it does not exist)
 
 Add the following lines:
 
@@ -103,12 +106,12 @@ Host <my.gcp.ip.address>
  User <username>
 ```
 
-Once the you've updated the SSH config, open the Command Palette and select "Remote-SSH: Connect to Host".
+Once the plugin is installed and the SSH config is updated, open the Command Palette and select "Remote-SSH: Connect to Host".
 
-* Open Command Palette in VSCode: `Cmd + Shift + P` (or click green "Open Remote Window" botton, bottom left of VSCode)
-* Will then prompt us to "Add New SSH Host...', where we'll enter the host and user of the instance like so:
-
-`ssh <username>@<my.gcp.ip.address>`
+* Open command prompt in VSCode: `Cmd + Shift + P` (or click green "Open Remote Window" botton, bottom left of VSCode)
+* Search for `remote-ssh`
+* Select `Remote-SSH: Connect to Host` from the menu
+* Select your instance ip address
 
 It should open a new VSCode window where we'll be able to select "File" > "Open..." and then select a directory from our instance to open. In our case we can select our `atlas_tutorials/auction_price_regression_tutorial` project which will then open up in VSCode in a new window.
 

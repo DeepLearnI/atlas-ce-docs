@@ -119,13 +119,17 @@ Requirements:
 
 * Install <a target="_blank" href="https://code.visualstudio.com/">VSCode</a>
 
-First, open up VSCode, and we'll install the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH plugin</a> that will allow us to open code from the remote instance in VSCode
+First, open up VSCode, and we'll install the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH plugin</a> that will allow us to open code from the remote instance in VSCode:
+
+- Open extensions via the left bar menu (or by pressing `shift + cmd + X`)
+- Search for `remote-ssh`
+- install the plugin
 
 ![VSCode plugin ](../assets/images/vscode-install-plugin.png)
 
 Before we connect to the host in VSCode, let's open the SSH config file, to add this instance to our SSH Config, to easily allows VSCode to connect to our instance.
 
-* Open ~/.ssh/config
+* Open `~/.ssh/config` (Create it if it does not exist)
 
 Add the following lines:
 
@@ -135,12 +139,18 @@ Host <my.aws.ip.address>
  User ubuntu
 ```
 
-Once the plugin is installed open the Command Palette and select "Remote-SSH: Connect to Host".
+Let's also give the right permission to our `pem` file using the following command:
+
+```
+chmod 400 ~/.ssh/<key_name>.pem
+```
+
+Once the plugin is installed and the SSH config is updated, open the Command Palette and select "Remote-SSH: Connect to Host".
 
 * Open command prompt in VSCode: `Cmd + Shift + P` (or click green "Open Remote Window" botton, bottom left of VSCode)
-* Will then prompt us to "Add New SSH Host...', where we'll enter the host and user of the instance like so:
-
-`ubuntu@<my.aws.ip.address>`
+* Search for `remote-ssh`
+* Select `Remote-SSH: Connect to Host` from the menu
+* Select your instance ip address
 
 It should open a new VSCode window where we'll be able to select "File" > "Open..." and then select a directory from our instance to open. In our case we can select our `atlas_tutorials/auction_price_regression_tutorial` project which will then open up in VSCode in a new window.
 
