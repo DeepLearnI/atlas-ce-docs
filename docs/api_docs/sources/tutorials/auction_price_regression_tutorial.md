@@ -177,6 +177,109 @@ Now, to run the hyperparameter search, from the project directory (bulldozer-dem
 python hyperparameter_search.py
 ```
 
+## Random Walk Search
+
+What if you're interested in slightly more sophisticated techniques than just a random search over the entire parameters space?
+
+A nice, yet simple technique to optimize your hyperparameters, is to start by randomly exploring a portion of the total Hparams space, greedily select the 
+best scoring job. From this best job A, you can make random small tweaks or "steps" of the hyperparameters, and look for a new best. We keep repeating this 
+process to slightly tweak the hyperparameters over and over until we reach the optimal setup.
+
+The following graph illustrates this optimization behavior:
+<a href="https://ibb.co/ZM91cPS"><img src="https://i.ibb.co/2kJYcQS/greedy-random-walk-1.png" alt="greedy-random-walk-1" border="0"></a>
+
+It is important to note that:
+
+- All jobs within a same batch of jobs are executed at the same time (provided enough resources/GPUs are available)
+- Every new batch of jobs is compared against the best job A from which the sampling is done. This assures that we never move back to a worse Hparams setup
+- If all jobs in a batch of jobs do not beat the previous best, we resample a new batch until we find a new best or we stop the search
+- Intuitively, the bigger the size of the batch of jobs, the more exploration you can do, although even a batch of size 1 is enough to hit a descent set of 
+Hparams.
+- Also, the bigger the size of the batch of jobs, the faster it is to find the optimal hyperparameters
+
+A simple code example to do this is as follows, which can be created in a file `greedy_random_walk.py`:
+```python
+import foundations
+import numpy as np
+
+
+RANDOM_WALK_STEPS = 100
+JOB_BATCH_SIZE = 10
+
+
+def totally_random_parameters():
+    hyperparameters = {'n_epochs': int(np.random.choice([2, 4])),
+                       'batch_size': int(np.random.choice([64, 128])),
+                       'validation_percentage': 0.1,
+                       'dense_blocks': [{'size': int(np.random.choice([64, 128, 512])), 'dropout_rate': np.random.uniform(0, 0.5)}],
+                       'embedding_factor': np.random.uniform(0.2, 0.6),
+                       'learning_rate': float(np.random.choice([0.0001, 0.001, 0.0005])),
+                       'lr_plateau_factor': 0.1,
+                       'lr_plateau_patience': 3,
+                       'early_stopping_min_delta': float(np.random.choice([0.0001, 0.001])),
+                       'early_stopping_patience': 5}
+    return hyperparameters
+
+
+def random_tweak(init_value, as_int=False, factor=0.1, a_min=None, a_max=None):
+    eps = 1e-6
+    new_value = float(np.random.normal(loc=float(init_value), scale=factor * (init_value + eps)))
+    
+    if as_int:
+        new_value = int(new_value)
+        
+    if a_min is not None:
+        new_value = max(a_min, new_value)
+        
+    if a_max is not None:
+        new_value = min(a_max, new_value)
+        
+    return new_value
+
+
+def randomize_params(params):
+    if params is None:
+        return totally_random_parameters()
+    
+    params['n_epochs'] = random_tweak(params['n_epochs'], as_int=True, factor=.5, a_min=2, a_max=10)
+    params['batch_size'] = random_tweak(params['batch_size'], as_int=True, factor=.3, a_min=64, a_max=128)
+    params['dense_blocks'][0]['size'] = random_tweak(params['dense_blocks'][0]['size'], as_int=True, factor=.1, a_min=64, a_max=512)
+    params['dense_blocks'][0]['dropout_rate'] = random_tweak(params['dense_blocks'][0]['dropout_rate'], as_int=False, factor=.1, a_min=0., a_max=.5)
+    params['embedding_factor'] = random_tweak(params['embedding_factor'], as_int=False, factor=.2, a_min=.2, a_max=.6)
+    params['learning_rate'] = random_tweak(params['learning_rate'], as_int=False, factor=.2, a_min=1e-4, a_max=1e-3)
+    params['early_stopping_min_delta'] = random_tweak(params['early_stopping_min_delta'], as_int=False, factor=.1, a_min=1e-4, a_max=1e-3)
+    return params
+
+
+# Initialize best job placeholders
+best_params = None
+best_loss = 2 ** 32 - 1
+
+for _ in range(RANDOM_WALK_STEPS):
+    print('Random walk step: {}'.format(_))
+    batch_params = []
+    deployed_jobs = []
+    
+    for i in range(JOB_BATCH_SIZE):
+        # Random params tweak
+        current_params = randomize_params(best_params)
+        batch_params.append(current_params)
+    
+        # Run job and await results
+        deployed_jobs.append(foundations.submit(scheduler_config="scheduler", command=["driver.py"], params=current_params))
+        
+    batch_losses = [job.get_metric('test mean squared error') for job in deployed_jobs]
+    
+    # Reassign best job
+    for current_loss, current_params in zip(batch_losses, batch_params):
+        if current_loss < best_loss:
+            best_loss = current_loss
+            best_params = current_params
+```
+
+After a simple random walk Hparams optimization, one might think about doing a more sophisticated search, using evolutionary algorithms or bayesian 
+optimization.
+
 ## Congrats!
 
 That's it! You've completed the Foundations Atlas Tutorial. Now, you should be able to go to the GUI and see your
