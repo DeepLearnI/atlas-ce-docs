@@ -1,4 +1,4 @@
-# Atlas Community Edition
+# Foundations Atlas
 
 ![Atlas](assets/images/trimmed_3.png "Logo Title Text 1")
 
