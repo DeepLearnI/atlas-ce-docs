@@ -166,7 +166,7 @@ __Arguments__
 
 - __scheduler_config__ ([str]): Name of the scheduler. Should always be `scheduler` for Atlas CE
 
-- __job_dir__ ([str]): Default `cwd`. Optional argument to specify job directory
+- __job_directory__ ([str]): Default `cwd`. Optional argument to specify job directory
 
 - __project_name__ ([str]): Defaults to current working directory. Optional argument to specify project name. This will take precedence over `job.config.yaml`
 
