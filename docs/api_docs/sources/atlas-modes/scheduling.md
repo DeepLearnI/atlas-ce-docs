@@ -328,6 +328,7 @@ working_dir_root: /<path_to>/.foundations/local_docker_scheduler/work_dir
 We can now use `aws` as a scheduler config in the CLI or SDK.
 
 Examples:
+
  - `foundations submit aws . main.py`
  - `foundations.submit(scheduler_config='aws')`
  - `foundations get logs aws <job_id>`
