@@ -199,6 +199,37 @@ foundations.submit(scheduler_config="scheduler",
                     stream_job_logs=False)
 ```
 
+#### BETA: Deployment Object
+
+The object returned by `job_deployment = foundations.submit(...)` contains information about the job that it just launched. **In it's current form, there are 3 supported functions.**
+
+```python
+# Get back a specific parameter for the job
+job_deployment.get_param(param_name: str) -> str
+```
+
+```python
+# Get back a specific metric for the job
+job_deployment.get_metric(metric_name: str) -> str
+```
+
+```python
+# Get back a dictionary that contains the information stored in the jobs row on the GUI
+job_deployment.get_job_details() -> dict
+```
+
+!!! note
+    All of the calls are blocking. This means that if you call it on a job that is not finished, the function call will wait until the job to finish.
+    
+!!! warning
+    For hyperparameter search, we normally recommend setting the `FOUNDATIONS_COMMAND_LINE` environment variable to `True` to make sure that the search script does not run as a job. **However**,
+    for the job deployment object to work it needs this environment variable to be either set to `False` or not set at all. 
+    
+    This means that your search script will show up as a job in the GUI. This "job" will run as long as the search script takes and act strangly within the GUI (e.g. no logs will appear).
+    
+    We are aware of this annoyance and have a fix in the works!
+
+
 ## Get project metrics
 Retrieve metadata, hyper-parameters, metrics & tags for all jobs associated with a project 
 
