@@ -11,7 +11,7 @@ The results are then stored in an archive location that can be accessed using th
     Atlas Community Edition comes with a Docker based local scheduler out of the box. The installation also sets up a configuration file called `scheduler.config.yaml`, this is the `scheduler_config`
     that is used for most CLI and SDK commands.
     
-    See [TODO](TODO) to see how you can create a new scheduler config to launch to a remote machine.  
+    See [here](https://dessa-atlas-community-docs.readthedocs-hosted.com/en/latest/atlas-modes/scheduling/#submitting-to-a-remote-scheduler) to see how you can create a new scheduler config to launch to a remote machine.  
 
 ### Creating a project
 Use the `foundations init <project_name>` command to create a template project directory. This command will create a project directory in your current directory with the following contents:
