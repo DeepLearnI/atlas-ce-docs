@@ -266,7 +266,7 @@ for _ in range(RANDOM_WALK_STEPS):
         batch_params.append(current_params)
     
         # Run job and await results
-        deployed_jobs.append(foundations.submit(scheduler_config="scheduler", command=["driver.py"], params=current_params))
+        deployed_jobs.append(foundations.submit(scheduler_config="scheduler", job_directory='.', command=["driver.py"], params=current_params))
         
     batch_losses = [job.get_metric('test mean squared error') for job in deployed_jobs]
     

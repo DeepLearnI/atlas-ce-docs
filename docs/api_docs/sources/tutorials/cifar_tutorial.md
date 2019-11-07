@@ -160,7 +160,7 @@ hyperparameter_ranges = {'num_epochs': 4,
 num_jobs = 5
 for _ in range(num_jobs):
     hyperparameters = sample_hyperparameters(hyperparameter_ranges)
-    foundations.submit(scheduler_config='scheduler', job_dir='.', command='driver.py', params=hyperparameters, stream_job_logs=True)
+    foundations.submit(scheduler_config='scheduler', job_directory='.', command='driver.py', params=hyperparameters, stream_job_logs=True)
 ```
 
 This script samples hyperparameters uniformly from pre-defined ranges, then submits jobs using those hyperparameters. 
