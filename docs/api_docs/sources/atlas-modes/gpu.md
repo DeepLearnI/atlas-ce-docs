@@ -1,6 +1,9 @@
 <h1>GPU mode & concurrency</h1>
 ---
 
+!!! note "Prerequisites"
+    Please make sure that you have [nvidia-docker2](https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)) installed. Without this installed, Docker will not be able to properly access your machines GPUs.
+
 By default, Atlas runs all of your jobs without GPUs on the machine. Luckily, if you are hoping to run this on a machine and use the GPUs, it's pretty simple.
 
 Just run `atlas-server start -g` and you're off to the races.
