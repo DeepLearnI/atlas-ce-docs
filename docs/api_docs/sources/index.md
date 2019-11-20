@@ -2,16 +2,19 @@
 
 ![Atlas](assets/images/trimmed_3.png "Logo Title Text 1")
 
-![Platform Support](https://img.shields.io/badge/platform-osx%20%7C%20linux-lightgrey "platform")
-![Python Support](https://img.shields.io/badge/python-%3E3-brightgreen "python")
-![Signups to download](https://img.shields.io/badge/Signups%20to%20download-640-brightgreen "downloads")
-[![File issues](https://img.shields.io/github/issues/dessa-public/atlas)](https://github.com/dessa-public/atlas/issues)
+![Platform Support](https://img.shields.io/badge/Platforms-osx%20%7C%20linux%20%7C%20windows-lightgrey "platform")
+![Python Support](https://img.shields.io/badge/Python-%3E3-brightgreen "python")
+![Downloads](https://img.shields.io/badge/Downloads-1000+-brightgreen "downloads")
 [![Follow Dessa](https://img.shields.io/twitter/follow/dessa?label=Follow%20Dessa&style=social)](https://twitter.com/dessa)
 
 
 ## What is Atlas?
 
 Atlas was built by our machine learning engineers to dramatically reduce the model development time, from the experimentation workflow to production.
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+  <iframe src="https://www.youtube.com/embed/YnwtO48UYAU?start=2" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
 
 Here are some of the core features:
 

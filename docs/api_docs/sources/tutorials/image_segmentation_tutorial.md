@@ -4,6 +4,10 @@
 
 Find code for this tutorial [here](https://github.com/dessa-public/Image-segmentation-tutorial).
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+  <iframe src="https://www.youtube.com/embed/TnMq0V_O1zs?start=146" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+
 ## Introduction
 
 This tutorial demonstrates how to make use of the features of Foundations Atlas. Note that any machine learning
