@@ -1,6 +1,8 @@
 # Foundations Atlas
 
-![Atlas](assets/images/trimmed_3.png "Logo Title Text 1")
+<p align="center">
+  <img width="40%" src="assets/images/atlas_logo.gif">
+</p>
 
 ![Platform Support](https://img.shields.io/badge/Platforms-osx%20%7C%20linux%20%7C%20windows-lightgrey "platform")
 ![Python Support](https://img.shields.io/badge/Python-%3E3-brightgreen "python")

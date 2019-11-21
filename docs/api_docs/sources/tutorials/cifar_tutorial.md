@@ -1,4 +1,8 @@
-_/
+# CIFAR Tutorial
+
+*Estimated time: 30 minutes*
+
+Find code for this tutorial [here]("https://github.com/dessa-public/cifar-tutorial").
 
 ## Introduction
 
@@ -12,9 +16,9 @@ Foundations Atlas community edition for free from [this link](https://www.atlas.
 ## Downloading the code and data
 
 The first thing you'll need to do is clone the repository and cd into it by running:
-```
-git clone https://github.com/DeepLearnI/cifar-tutorial.git cifar_tutorial
-cd cifar_tutorial
+```shell script
+git clone https://github.com/DeepLearnI/cifar-demo.git cifar_demo
+cd cifar_demo
 ```
 
 In this tutorial we make use of the CIFAR-10 dataset. This is an image recognition dataset consisting of 60,000 32x32
@@ -22,25 +26,23 @@ RGB images. These images belong to 10 categories including: dogs, cats, boats, c
 
 Run the following script to download the data and get started:
 
-```
+```shell script
 python download_data.py
 ```
 
 ## Enabling Atlas Features
 
 You are provided with the following python scripts:
-
-* **driver.py**: A driver script which downloads the dataset, prepares it for model training and evaluation, trains a simple 
+* driver.py: A driver script which downloads the dataset, prepares it for model training and evaluation, trains a simple 
 convolutional network, then evaluates the model on the test set
-
-* **model.py**: Code to implement the convolutional network
+* model.py: Code to implement the convolutional network
 
 Note that this is a fairly standard implementation and runs without any modification.
 
 To enable Atlas features, we only to need to make a few changes. Firstly add the 
 following line to the top of driver.py and model.py:
 
-```
+```python
 import foundations
 ```
 
@@ -51,9 +53,9 @@ statements with calls to the function foundations.log_metric(). This function ta
 job successfully completes, logged metrics for each job will be visible from the Foundations GUI. Copy the following two lines
 and replace the two print statements with them:
 
-```
+```python
 foundations.log_metric('test_loss', float(scores[0]))
-foundations.log_metric('test_accuracy', float(scores[1]))
+foundations.log_metric('test_accuracy:', float(scores[1]))
 ```   
 
 ### Saving Artifacts
@@ -62,7 +64,7 @@ Currently, the evaluate() function saves images of the models most and least con
 With Atlas, we can save any artifact to the GUI with just one line. Add the following lines to the end of evaluate() 
 to send the locally saved images to the Atlas GUI. 
 
-```
+```python
 foundations.save_artifact('data/most_confident_image.png', "most_confident_image")
 foundations.save_artifact('data/least_confident_image.png', "least_confident_image")
 ```   
@@ -73,7 +75,7 @@ foundations.save_artifact('data/least_confident_image.png', "least_confident_ima
 Atlas has full TensorBoard integration. To access TensorBoard directly from the Atlas GUI, add the following line of code 
 to start of driver.py.  
 
-```
+```python
 foundations.set_tensorboard_logdir('train_logs')
 ```
 
@@ -83,7 +85,7 @@ are generated at each epoch through a callback, you can find the code in train()
 
 Lastly, create a file in the project directory named "job.config.yaml", and copy the text from below into the file. 
 
-```
+```yaml
 project_name: 'cifar-demo'
 log_level: INFO
 ```
@@ -93,7 +95,7 @@ log_level: INFO
 Activate the environment in which you have foundations installed, then from inside the project directory (cifar-demo)
 run the following command:
 
-```
+```shell script
 foundations submit scheduler . driver.py
 ```
 
@@ -111,7 +113,7 @@ To view your model training on TensorBoard, simply select the running job, and c
 Atlas makes running and tracking the results of a hyperparameter easy. Create a new file called 
 'hyperparameter_search.py' and paste in the following code:
 
-```
+```python
 import os
 os.environ['FOUNDATIONS_COMMAND_LINE'] = 'True'
 import foundations
@@ -160,7 +162,13 @@ hyperparameter_ranges = {'num_epochs': 4,
 num_jobs = 5
 for _ in range(num_jobs):
     hyperparameters = sample_hyperparameters(hyperparameter_ranges)
-    foundations.submit(scheduler_config='scheduler', job_directory='.', command='driver.py', params=hyperparameters, stream_job_logs=True)
+    foundations.submit(
+        scheduler_config='scheduler', 
+        job_directory='.', 
+        command='driver.py', 
+        params=hyperparameters, 
+        stream_job_logs=False
+    )
 ```
 
 This script samples hyperparameters uniformly from pre-defined ranges, then submits jobs using those hyperparameters. 
@@ -170,14 +178,14 @@ hyperparameters'), we'll load the sampled hyperparameters instead of defining a 
 
 Replace that block with the following:
 
-```
+```python
 # define hyperparameters
 hyperparameters = foundations.load_parameters()
 ```
 
 Now, to run the hyperparameter search, from the project directory (cifar-demo) simply run 
 
-```
+```shell script
 python hyperparameter_search.py
 ```
 

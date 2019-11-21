@@ -4,6 +4,8 @@
 
 Find code for this tutorial [here](https://github.com/dessa-public/fake-voice-detection).
 
+## Introduction
+
 With the popularity and capabilities of audio deep fakes on the rise, creating defenses against deep fakes used for malicious 
 intent is becoming more important than ever. 
 

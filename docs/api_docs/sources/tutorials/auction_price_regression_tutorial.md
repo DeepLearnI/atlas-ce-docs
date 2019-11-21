@@ -1,8 +1,8 @@
-# Foundations Atlas Tutorial
+# Auction Price Regression Tutorial
 
 *Estimated time: 30 minutes*
 
-Find code for this tutorial [here](https://github.com/DeepLearnI/auction-price-regression-tutorial).
+Find code for this tutorial [here]("https://github.com/dessa-public/auction-price-regression-tutorial").
 
 ## Introduction
 
