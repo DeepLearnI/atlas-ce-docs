@@ -5,7 +5,7 @@
 </p>
 
 ![Platform Support](https://img.shields.io/badge/Platforms-osx%20%7C%20linux%20%7C%20windows-lightgrey "platform")
-![Python Support](https://img.shields.io/badge/Python-%3E3-brightgreen "python")
+![Python Support](https://img.shields.io/badge/Python-%3E3.6-brightgreen "python")
 ![Downloads](https://img.shields.io/badge/Downloads-1000+-brightgreen "downloads")
 [![Follow Dessa](https://img.shields.io/twitter/follow/dessa?label=Follow%20Dessa&style=social)](https://twitter.com/dessa)
 
