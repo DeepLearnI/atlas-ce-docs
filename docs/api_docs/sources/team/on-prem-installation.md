@@ -47,13 +47,13 @@ At a high level, the goals are as follows:
 
 * Replace the 4 instances of `atlas-ce-tracker` with the Master nodes IP
 
-* Reaplce the 4 instances of `6379` with `5556`
+* Replace the 4 instances of `6379` with `5556`
 
 **~/.foundations/config/local_docker_scheduler/tracker_client_plugins.yaml**
 
 * Replace `atlas-ce-tracker` with the Master nodes IP
 
-* Reaplce `6379` with `5556`
+* Replace `6379` with `5556`
 
 **~/.foundations/config/local_docker_scheduler/worker_config/execution/default.config.yaml**
 
