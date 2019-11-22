@@ -1,7 +1,7 @@
 # Foundations Atlas
 
 <p align="center">
-  <img width="40%" src="assets/images/atlas_logo.gif">
+  <img width="25%" src="assets/images/atlas_logo.gif">
 </p>
 
 ![Platform Support](https://img.shields.io/badge/Platforms-osx%20%7C%20linux%20%7C%20windows-lightgrey "platform")
@@ -35,7 +35,7 @@ Here are some of the core features:
 Maintain an audit trail of every single experiment you run, complete with code and any saved items
 
 ## How does Atlas Work?
-Atlas CE consists of the following core modules:  
+Atlas consists of the following core modules:
 
 * GUI - A Dockerized web application to view job status for various projects.  
 * Foundations SDK & CLI - A programmatic and command-line interfaces for Atlas.
