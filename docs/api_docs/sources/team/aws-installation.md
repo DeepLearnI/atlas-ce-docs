@@ -94,7 +94,7 @@ The following outlines how to setup Atlas on the master node:
 
 * SSH into the master instance `ssh -i /path/to/key/<key_name>.pem  ubuntu@ipv4.of.ec2.instance`
 
-* Download the installer onto the instance (both the atlas_installer.py and atlas_team.tgz)
+* Download the installer onto the instance (both the atlas_installer.py and atlas_team.tgz). These two files are provided by Dessa.
 
 * Create a conda environment: `conda create -y -n atlas-team python=3.6.8`
 
@@ -169,13 +169,17 @@ For our multi-node system, we can spin up as many worker instances as needed. Be
 
 2. SSH into the worker instance `ssh -i /path/to/key/<key_name>.pem ubuntu@ipv4.of.ec2.instance`
 
-3. Download the installer onto the instance (both atlas_installer.py and atlas_team.tgz)
+3. Download the installer onto the instance (both atlas_installer.py and atlas_team.tgz). These two files are provided by Dessa.
 
 4. Create a conda environment: `conda create -y -n atlas-team python=3.6.8`
 
 5. Activate the conda environment: `conda activate atlas-team`
 
-6. Run the installer: `python atlas_installer.py -dl`
+6. Run the installer: `python atlas_installer.py -dl`. Using `-dl` tells the Atlas installer: 
+
+    `-d`: no download
+
+    `-l`: use latest
 
 7. Mount the EFS system to `~/.foundations`. Do this by using the mount command that was provided after creating the EFS filesytem: `sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-b563e834.efs.us-east-1.amazonaws.com:/ ~/.foundations`
 
@@ -184,12 +188,12 @@ For our multi-node system, we can spin up as many worker instances as needed. Be
     * `export REDIS_ADDRESS=<MASTER-NODE-PRIVATE-IP>`
     * `export NUM_WORKERS=1`
 
-9. Run `atlas-server start`
+9. Run `atlas-server start` to start the Atlas server
 
 
 ## Getting users setup to submit jobs
 
-Once both the master and worker(s) instances are setup to handle job submission, we can now set up users to be able to submit jobs. The user will need to install both Atlas, and have the proper submission configuration file.
+Once both the master and worker(s) instances are setup to handle job submission, we can now get users submitting jobs. The user will need to 1) install Atlas, and 2) have proper submission configuration file.
 
 The Atlas dashboard can be accessed via: `<master_external_ip>:5555`.
 
@@ -197,9 +201,14 @@ The following steps outline the configurations for a user to have on their clien
 
 * The admin will need to create an account for any new user. This can be done at the Keycloak GUI at `https://<master_node_external_ip>:8443/auth/`. To do so, in the admin console go to Users > Add User
 
+!!! note
+    A user login session is set to 5 minutes by default, meaning the token will expire and user will be logged out. To change this go to the Keycloak Admin dashboard at `https://<master_node_external_ip>:8443` > Administration Console.
+    
+    Once logged in Realm Settings > Tokens > Access Token Lifespan to adjust the expiration.
+
 * Install Atlas SDK into a new conda environment on the user's machine. This should allow the user to have access to the `foundations` CLI
 
-* The user will need to add a new configuration that will be need to be provided by the integrations person. This file is generated on the master node in `~/.foundations/config/submission`
+* The user will need to add a new configuration file that will be need to be provided by the integrations person. This file is generated on the master node in `~/.foundations/config/local_docker_scheduler/worker_config/submission/scheduler.config.yaml`
 
 * Update the `scheduler_url` value with the master node's external IP, and the port should `5558` 
 
@@ -220,7 +229,7 @@ To test that job submission is working, the user can submit a job with the follo
 
 * On the user's machine, make sure the conda environment is enabled with Atlas installed, then run `foundations init <project_name>` to create a simple project with Foundations' scaffolding
 
-* `cd` into the project directory, and run `foundations submit team . main.py`, where `team` is the first part of the config we just added
+* `cd` into the project directory, and run `foundations submit team . main.py`, where `team` is the first part of the name of the config file we just added
 
 * This should submit a job to our master node, which should then schedule that to the worker.
 
