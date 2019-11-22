@@ -158,7 +158,7 @@ Password: `test`
     
 ## 3. Setup users client
 
-nce both the master and worker(s) instances are setup to handle job submission, we can now set up users to be able to submit jobs. The user will need to install both Atlas, and have the proper submission configuration file.
+Once both the master and worker(s) instances are setup to handle job submission, we can now set up users to be able to submit jobs. The user will need to install both Atlas, and have the proper submission configuration file.
 
 The Atlas dashboard can be accessed via: `<master_external_ip>:5555`.
 
