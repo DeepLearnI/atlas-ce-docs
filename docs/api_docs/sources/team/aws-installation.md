@@ -158,6 +158,16 @@ Atlas runs a Keycloak authentication server for managing users and login.
 
 * You can also create a user at this point. To do so, in the admin console go to Users > Add User
 
+### Add new users
+
+After logging into the authentication system, the admin user can create new Atlas users:
+
+* In the sidebar, go to `Users` > `Add user`
+
+* Enter information for the new user and save
+
+* Go to `Credentials` tab to configure a password for the new user
+
 
 ## Setup worker node
 
