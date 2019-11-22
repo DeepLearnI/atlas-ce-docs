@@ -108,7 +108,7 @@ The following outlines how to setup Atlas on the master node:
 
 * Mount the EFS system to `~/.foundations`. Do this by using the mount command that was provided after creating the EFS filesytem: `sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-b563e834.efs.us-east-1.amazonaws.com:/ ~/.foundations`
 
-* Copy the content of the backed-up directory back (cp -r ~/.BACK_foundations/* ~/.foundations)
+* Copy the content of the backed-up directory back: `cp -r ~/.BACK_foundations/* ~/.foundations`
 
 * Create a directory as follows: `mkdir ~/f9s_work_dir`
 
