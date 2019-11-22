@@ -66,7 +66,7 @@ The **status** can be in 1 of 4 states:
 
 **Duration** is how long the job ran for.
 
-**User** in Atlas CE is your machines username.
+**User** in Atlas CE is your machines username, or in Atlas team the username used to log in.
 
 The **tags** section is really useful, this shows any tag that is attached to a given job. Tags are explained more in
 the [SDK Reference](https://dessa-atlas-community-docs.readthedocs-hosted.com/en/latest/sdk-reference/SDK/).
@@ -158,7 +158,7 @@ like to see.
 This section of the Overview page lets you keep notes as your project evolves. 
 
 !!! note
-    If you are running Atlas CE in a shared environment, leaving notes for other data scientists, so they know what is going on, will help you collaborate.
+    If you are running Atlas in a shared environment, leaving notes for other data scientists, so they know what is going on, will help you collaborate.
 
 #### Overview Markdown
 

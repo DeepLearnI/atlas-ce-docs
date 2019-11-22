@@ -1,4 +1,4 @@
-# Quick Start Guide
+# Atlas CE Quick Start Guide
 
 ### Installation
 

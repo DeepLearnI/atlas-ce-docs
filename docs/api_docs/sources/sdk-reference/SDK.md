@@ -164,7 +164,7 @@ Submits a job to the Atlas Scheduler.
 
 __Arguments__
 
-- __scheduler_config__ ([str]): Name of the scheduler. Should always be `scheduler` for Atlas CE
+- __scheduler_config__ ([str]): Name of the scheduler. Should always be `scheduler` for Atlas
 
 - __job_directory__ ([str]): Default `cwd`. Optional argument to specify job directory
 

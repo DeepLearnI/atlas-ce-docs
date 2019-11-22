@@ -58,7 +58,7 @@ Foundations INFO: Job '45540b52-ffe2-44ab-9838-db467d3499c0' has completed.
 We can also view the job status and any captured metadata in the GUI as usual.
 
 This CLI command takes three positional arguments, `scheduler_config`, `job_dir` and `command`. 
-The `scheduler_config` is `scheduler` which will be the case for all Atlas CE job submissions. 
+The `scheduler_config` is `scheduler` which will be the case for all Atlas job submissions.
 The `job_dir` refers to the project directory which is `.` and `command` in this case is `main.py`. 
 `command` refers to the Docker command to run inside the worker container. We can pass add additional arguments to `command` in case our script accepts command-line arguments. Please refer to the CLI documentation for additional details on the `foundations submit` command.
 
@@ -156,14 +156,14 @@ To view logs associated with the actual job execution, copy the Job UUID from th
 
 ` foundations get logs scheduler <job_id>` 
 
-This command will retrieve logs for the given job from the `scheduler` execution environment, which is the default environment for Atlas CE.
+This command will retrieve logs for the given job from the `scheduler` execution environment, which is the default environment for Atlas.
 
 #### Retrieving archives
 Now that we've run a few jobs, lets retrieve the archive for one of the jobs and see how Atlas provides us with experiment version control. 
 Copy the UUID for one of the jobs from the GUI and execute the following command in the console:
 `foundations get job scheduler <job_id>`
 
-This command will retrieve the job bundle from the `scheduler` execution environment, which is the default environment for Atlas CE. 
+This command will retrieve the job bundle from the `scheduler` execution environment, which is the default environment for Atlas.
 The job bundle contains the state of the directory at the time the job was executed. 
 This creates an audit trail for all experiments and their associated artifacts in case a specific model and its code need to be retrieved.
 

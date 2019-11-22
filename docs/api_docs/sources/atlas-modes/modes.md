@@ -21,7 +21,7 @@ In execution mode, code is run in an existing local environment that you already
 
 
 #### 2. **Scheduling**:
-In scheduling mode, Atlas CE queues your experiment with the local Atlas scheduler which runs it in a containerized environment. This mode gives you the ability to queue a large number of experiments as well as leverage common containerized tools such as NVIDIA Rapids.
+In scheduling mode, Atlas queues your experiment with the local Atlas scheduler which runs it in a containerized environment. This mode gives you the ability to queue a large number of experiments as well as leverage common containerized tools such as NVIDIA Rapids.
 
 !!! Tip
     Use this mode if you want to schedule many jobs and do a large hyperparameter search
