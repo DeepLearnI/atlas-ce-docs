@@ -201,7 +201,7 @@ For our multi-node system, we can spin up as many worker instances as needed. Be
 9. Run `atlas-server start` to start the Atlas server
 
 
-## Getting users setup to submit jobs
+## Getting users set up
 
 Once both the master and worker(s) instances are setup to handle job submission, we can now get users submitting jobs. The user will need to 1) install Atlas, and 2) have proper submission configuration file.
 
@@ -245,6 +245,7 @@ To test that job submission is working, the user can submit a job with the follo
 
 * The user can now load the Atlas Dashboard, and should be able to see the job
 
+![first job](../assets/images/first_atlas_project.png)
 
 You should be all setup with Atlas Team now. To conclude, here's what we've done:
 
@@ -252,3 +253,14 @@ You should be all setup with Atlas Team now. To conclude, here's what we've done
 * A worker node for executing jobs
 * An EFS filesystem as a central storage
 * Setup a user to submit jobs
+
+## Cleanup and removing nodes
+
+To remove a specific worker node, just terminate the specific worker instance from the AWS console.
+
+To shut down Atlas Team from AWS. Make sure to shut down all instances and related infrastructure when wanting to stop incurring all AWS costs. Make sure to remove all of the following:
+
+- Master node
+- Worker node(s)
+- EFS filesystem
+- Security group

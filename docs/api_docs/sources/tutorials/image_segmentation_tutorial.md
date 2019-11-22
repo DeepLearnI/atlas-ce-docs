@@ -40,11 +40,13 @@ See <a target="_blank" href="https://dessa-atlas-community-docs.readthedocs-host
   <summary>FAQ: How to upgrade an older version of Atlas?</summary>
 <br>
 
-1. Stop atlas server using `atlas-server stop` <br>
-2. Remove docker images related to Atlas in your terminal `docker images | grep atlas-ce | awk '{print $3}' | xargs docker rmi -f`<br>
-3. Remove the environment where you installed the Atlas or pip uninstall the Atlas `conda env remove -n your_env_name`
+1. Stop atlas server using <code>atlas-server stop</code> <br><br>
+2. Remove docker images related to Atlas in your terminal with:
+  <br><code>docker images | grep atlas-ce | awk '{print $3}' | xargs docker rmi -f</code><br><br>
+3. Remove the environment where you installed the Atlas or pip uninstall the Atlas:
+<br><code>conda env remove -n your_env_name</code><br><br>
 
--------------------------------------------------------------------------------------------------------------------------
+
 </details>
 
 ## Image Segmentation
