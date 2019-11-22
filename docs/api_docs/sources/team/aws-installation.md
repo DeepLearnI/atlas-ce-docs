@@ -5,7 +5,7 @@ The following document outlines how to setup and deploy a multi-node compute sys
 ## Prerequisite
 * AWS account for admin
 
-## Setup:
+## Setup master node
 
 Atlas will need a master node instance, worker instance node(s), as well as an EFS filesystem.
 
@@ -13,36 +13,34 @@ Atlas will need a master node instance, worker instance node(s), as well as an E
 
 In order to setup Atlas, we'll first create the master instance that will be in charge of storing and managing the job queue.
 
-### Step 1: Choose an Amazon Machine Image (AMI)
+### Choose an Amazon Machine Image (AMI)
 
 * Search for the "DeepLearning AMI" that uses Ubuntu 16.04
 
-### Step 2: Configure an Instance Type
+### Configure an Instance Type
 
 For this page we'll select a *t2 medium* instance type.
 
-![Instance type](../assets/images/aws-instance-type.png)
-
 Make sure to click **"Next: Configure Instance Details"** to continue provisioning the instance.
 
-### Step 3: Configure Instance Details
+### Configure Instance Details
 
 * If your instance does require additional configuration adjust as needed
 * Otherwise there are no changes needed here, just click **"Next: Add Storage"**
 
-### Step 4: Add Storage
+### Add Storage
 
 We recommend increasing the size of your storage to at least 250GB. Adjust as needed for your expected data.
 
 ![Add storage](../assets/images/aws-add-storage.png)
 
-### Step 5: Add Tags
+### Add Tags
 
 * No changes, just click **Next: Configure Security Group**
 
-### Step 6: Configure Security Group
+### Configure Security Group
 
-Next, we'll create a new security group to allow for Atlas to securely use a few different ports on our instance. Specifically to allow the GUI, REST API, and archive server.
+Next, we'll create a new security group to allow for Atlas to securely use a few different ports on our instance. Specifically to allow the Atlas Dashboard UI, REST API, and archive server.
 
 To allow for this add the following 4 new rules:
 
@@ -77,16 +75,20 @@ You should then be able to use your downloaded `.pem` key to then SSH into the i
 Run `chmod 400 <key_name>.pem` on your key before SSH'ing to give it the proper permissions. We also recommend that you move the key to your `~/.ssh/` directory.
 
 
-### Create an EFS filesystem
+## Create an EFS filesystem
 
 We'll also need to setup an EFS filesystem that we can use as a central storage location.
 
 * When configuring the EFS filesystem for each availability zone add it to the security group that was  previously created and added to the master instance.
-* After creation it will provide a few commands that will mount the filesystem. You'll need the `sudo mount -t nfs4...` command in a few steps, so either copy it or keep this tab open for easy access.
 
 ![efs creation](../assets/images/atlas-team-efs.png)
 
-### Installing and setting up Atlas
+
+* After creation click on **On-premise mount instructions**, and it will provide a few commands that will mount the filesystem. You'll need the `sudo mount -t nfs4...` command in a few steps, so either copy it or keep this tab open for easy access.
+
+![mount efs](../assets/images/mount-instructions.png)
+
+## Installing and setting up Atlas
 
 The following outlines how to setup Atlas on the master node:
 
@@ -95,6 +97,8 @@ The following outlines how to setup Atlas on the master node:
 * Download the installer onto the instance (both the atlas_installer.py and atlas_team.tgz)
 
 * Create a conda environment: `conda create -y -n atlas-team python=3.6.8`
+
+* Run `echo ". /home/ubuntu/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc` and then `source ~/.bashrc` to make sure conda can be used in your shell
 
 * Activate the conda environment `conda activate atlas-team`
 
@@ -140,24 +144,28 @@ Set environment variables
 
 * `export REDIS_ADDRESS=<MASTER-NODE-PRIVATE-IP>`
 
-* `export NUM_WORKERS=0`
+* `export NUM_WORKERS=0`, which will mean this master node will not be used for computing jobs. Default is 1 if not provided
 
-* Now run `atlas-server start` to start the Atlas server
+* Run `atlas-server start` to start the Atlas server
 
-### Log into Atlas's authentication system
+### Log into Atlas' authentication system
 
 Atlas runs a Keycloak authentication server for managing users and login.
 
-* Login to Keycloak via the admin console: `https://<master_node_external_ip>:8443`. When first spun up the username and password are both `admin`
+* Login to Keycloak via the admin console: `https://<master_node_external_ip>:8443`. When first spun up the username and password will both `admin`
 
 * We recommend changing the admin password upon first login
 
+* You can also create a user at this point. To do so, in the admin console go to Users > Add User
 
-### Setup the worker node
+
+## Setup worker node
 
 For our multi-node system, we can spin up as many worker instances as needed. Below we'll walk through setting up on one instance. Repeat as needed.
 
-1. Create a Worker EC2 instance using the Ubuntu 16.04 Deeplearning AMI (p2.xlarge recommended)
+1. Create a Worker EC2 instance using the Ubuntu 16.04 Deeplearning AMI (p2.xlarge recommended). You can follow the previous steps above with respect to adding to the same Inbound Rules and Security group during instance configuration.
+
+![Instance type](../assets/images/aws-instance-type.png)
 
 2. SSH into the worker instance `ssh -i /path/to/key/<key_name>.pem ubuntu@ipv4.of.ec2.instance`
 
@@ -177,3 +185,51 @@ For our multi-node system, we can spin up as many worker instances as needed. Be
     * `export NUM_WORKERS=1`
 
 9. Run `atlas-server start`
+
+
+## Getting users setup to submit jobs
+
+Once both the master and worker(s) instances are setup to handle job submission, we can now set up users to be able to submit jobs. The user will need to install both Atlas, and have the proper submission configuration file.
+
+The Atlas dashboard can be accessed via: `<master_external_ip>:5555`.
+
+The following steps outline the configurations for a user to have on their client machine in order to submit jobs:
+
+* The admin will need to create an account for any new user. This can be done at the Keycloak GUI at `https://<master_node_external_ip>:8443/auth/`. To do so, in the admin console go to Users > Add User
+
+* Install Atlas SDK into a new conda environment on the user's machine. This should allow the user to have access to the `foundations` CLI
+
+* The user will need to add a new configuration that will be need to be provided by the integrations person. This file is generated on the master node in `~/.foundations/config/submission`
+
+* Update the `scheduler_url` value with the master node's external IP, and the port should `5558` 
+
+
+Example of `team.config.yaml`:
+
+    cache_config:
+        end_point: /cache_end_point
+    container_config_root: /home/ubuntu/.foundations/config/local_docker_scheduler/worker_config
+    job_deployment_env: local_docker_scheduler_plugin
+    job_results_root: /home/ubuntu/.foundations/job_data
+    scheduler_url: http://<master_node_external_ip>:5558
+    working_dir_root: /home/ubuntu/f9s_work_dir
+
+The `team.config.yaml` file should be put on the user's machine at `~/.foundations/config/submissions/`.
+
+To test that job submission is working, the user can submit a job with the following steps:
+
+* On the user's machine, make sure the conda environment is enabled with Atlas installed, then run `foundations init <project_name>` to create a simple project with Foundations' scaffolding
+
+* `cd` into the project directory, and run `foundations submit team . main.py`, where `team` is the first part of the config we just added
+
+* This should submit a job to our master node, which should then schedule that to the worker.
+
+* The user can now load the Atlas Dashboard, and should be able to see the job
+
+
+You should be all setup with Atlas Team now. To conclude, here's what we've done:
+
+* A master machine for orchestrating job execution
+* A worker node for executing jobs
+* An EFS filesystem as a central storage
+* Setup a user to submit jobs
