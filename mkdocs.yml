@@ -56,6 +56,11 @@ nav:
   - GUI: gui.md
   - Python SDK: sdk-reference/SDK.md
   - CLI: cli.md
+  - Atlas Team Edition:
+    # - User Management: team/user-management.md
+    # - Compute Management: team/compute-management.md
+    - AWS Installation: team/aws-installation.md
+    - On Premise Installation: team/on-prem-installation.md
   - Tutorials:
       - CIFAR Tutorial:  tutorials/cifar_tutorial.md
       - Auction Price Regression Tutorial: tutorials/auction_price_regression_tutorial.md
