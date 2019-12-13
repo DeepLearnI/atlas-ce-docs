@@ -54,6 +54,10 @@ Atlas CE currently supports Mac OSX, Linux & Windows 10.
 | Archive | TCP | 127.0.0.1 | 5557 |  | 5557 |
 | Tboard | TCP | 127.0.0.1 | 5959 |  | 5959 | 
 
+**Python SDK Only**
+
+ 1. Run the install script with `python atlas_ce_installer.py -ia`
+
 !!! tip 
     Running `python atlas_ce_installer.py --help` will give you troubleshooting advice if the script isn't working as expected.
 
