@@ -67,9 +67,12 @@ nav:
   - Atlas CE Cloud Installation:
     - AWS: atlas-on-aws.md
     - GCP: atlas-on-gcp.md
-  - Support & Community: support.md
   - Atlas Team Edition:
     # - User Management: team/user-management.md
     # - Compute Management: team/compute-management.md
     - AWS Installation: team/aws-installation.md
     - On Premise Installation: team/on-prem-installation.md
+  - Support & Community:
+    - Community: community.md
+    - FAQ: faq.md
+    - Uninstallation: uninstallation.md
