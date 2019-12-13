@@ -58,6 +58,8 @@ Atlas CE currently supports Mac OSX, Linux & Windows 10.
 
  1. Run the install script with `python atlas_ce_installer.py -ia`
 
+---
+
 !!! tip 
     Running `python atlas_ce_installer.py --help` will give you troubleshooting advice if the script isn't working as expected.
 
