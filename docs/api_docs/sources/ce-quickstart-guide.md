@@ -7,7 +7,7 @@
 **Prerequisites**
 
  1. Docker version \>18.09 ([Docker installation instructions](https://docs.docker.com/install/))
- 2. Python \>3.6
+ 2. Python \>=3.6
  3. \>5GB of free machine storage
  4. The `atlas_ce_installer.py` file
 
@@ -23,7 +23,7 @@ Atlas CE currently supports Mac OSX, Linux & Windows 10.
 
  2. Copy the `atlas_ce_installer.py` file into this directory.
 
- 3. Create and activate a Python \>3.6 virtual environment using 
+ 3. Create and activate a Python \>=3.6 virtual environment using 
  [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands)
  or [venv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
  to minimize dependency issues.
