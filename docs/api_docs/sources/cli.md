@@ -18,8 +18,6 @@ foundations init <project-name>
 
 This is the recommended way of creating a `foundations` project. A directory will be created containing files for an example `foundations` project with default configuration and source code.
 
-A guide on creating your first `foundations` project can be found [here](old/first_example.md#create-a-new-foundations-project).
-
 **Positional Arguments**
 
 * **`project_name`**: The name of the directory to be created.

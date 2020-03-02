@@ -9,7 +9,6 @@
 ![Downloads](https://img.shields.io/badge/Downloads-1000+-brightgreen "downloads")
 [![Follow Dessa](https://img.shields.io/twitter/follow/dessa?label=Follow%20Dessa&style=social)](https://twitter.com/dessa)
 
-
 ## Atlas Documentation 
 
 Atlas is a flexible Machine Learning platform that consists of a Python SDK, CLI, GUI & Scheduler to help Machine Learning Engineering teams dramatically reduce the model development time & reduce effort in managing infrastructure.

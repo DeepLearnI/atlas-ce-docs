@@ -16,7 +16,7 @@ This VM will give us access to an instance with a GPU, as well as built-in libra
 
 Click the **"Launch on compute engine"** button to start setup.
 
-![create instance](../assets/images/gcp-create-instance.png)
+![create instance](assets/images/gcp-create-instance.png)
 
 ### Step 2: Deployment settings
 
@@ -43,7 +43,7 @@ It will take about 5 minutes for the instance to initialize.
 
 Use the provided gcloud CLI command to SSH into the instance. It should look similar to:
 
-![SSH into instance](../assets/images/gcp-ssh-instance.png)
+![SSH into instance](assets/images/gcp-ssh-instance.png)
 
 We can take this command and run it in our terminal to SSH into the instance. Make sure you have the gcloud CLI tool setup prior to doing this.
 
@@ -108,7 +108,7 @@ Now Atlas is running and you'll have access to both the `foundations` and `atlas
 
 You should now be able to view the Atlas Dashboard by going in your browser to `<external.ip.of.your.instance>:5555`. If you ever need to find the IP of your instance you can find it on your GCP console <a target="_blank" href="https://console.cloud.google.com/compute/instances">instance list</a>).
 
-![SSH into instance](../assets/images/gcp-ssh-ip.png)
+![SSH into instance](assets/images/gcp-ssh-ip.png)
 
 In the dashboard's project page your should see a project that has been run once. These projects were baked into the script to help get started.
 
@@ -136,14 +136,14 @@ Requirements:
 
 First, open up VSCode, and we'll install the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH plugin</a> that will allow us to open code from the remote instance in VSCode
 
-![VSCode plugin ](../assets/images/vscode-install-plugin.png)
+![VSCode plugin ](assets/images/vscode-install-plugin.png)
 First, open up VSCode, and we'll install the <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH plugin</a> that will allow us to open code from the remote instance in VSCode:
 
 - Open extensions via the left bar menu (or by pressing `shift + cmd + X`)
 - Search for `remote-ssh`
 - install the plugin
 
-![VSCode plugin ](../assets/images/vscode-install-plugin.png)
+![VSCode plugin ](assets/images/vscode-install-plugin.png)
 
 Before we connect to the host in VSCode, let's open the SSH config file, to add this instance to our SSH Config, to easily allows VSCode to connect to our instance.
 
@@ -173,7 +173,7 @@ At the menu bar at the top of VSCode window we'll select the "Terminal" > "New T
 * Let's test that we can run a job with  `foundations submit scheduler . driver.py`
 * You should see this job in the Atlas GUI
 
-![vscode shell ](../assets/images/gcp-vscode.png)
+![vscode shell ](assets/images/gcp-vscode.png)
 
 We're now set! You can now open the files and adjust as you wish, or you can start on your own project. To understand more about the `auction_price_regression` project, you can check out the full tutorial in the **Tutorial** section of the docs.
 
@@ -188,7 +188,7 @@ To stop or terminate the instance:
 * Go to your VM instances console
 * Find your instance > click either Delete or Stop
 
-![Review ](../assets/images/gcp-stop-instance.png)
+![Review ](assets/images/gcp-stop-instance.png)
 
 That's it, we've successfully spun up a GPU instance and run a few jobs remotely from VSCode!
 

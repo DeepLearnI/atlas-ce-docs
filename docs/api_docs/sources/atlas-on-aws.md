@@ -38,7 +38,7 @@ Our custom AMI is just AWS's Deep Learning AMI (Deep Learning AMI (Ubuntu 16.04)
 
 For this page we'll select a *p2.xlarge* instance type, as we want some a GPU to train with. We recommend a P2 instance as it a good balance between performance and cost, but if you are looking for more power you can select a P3 instance.
 
-![Instance type](../assets/images/aws-instance-type.png)
+![Instance type](assets/images/aws-instance-type.png)
 
 Make sure to click **"Next: Configure Instance Details"** to continue provisioning the instance.
 
@@ -51,7 +51,7 @@ Make sure to click **"Next: Configure Instance Details"** to continue provisioni
 
 We recommend increasing the size of your storage to at least 250GB, as the base AMI image is already ~80GB. Adjust as needed for your expected data.
 
-![Add storage](../assets/images/aws-add-storage.png)
+![Add storage](assets/images/aws-add-storage.png)
 
 ### Step 5: Add Tags
 
@@ -66,7 +66,7 @@ To allow for this:
 * Add 3 new rules, with ports for 5555, 5557, and 5959
 * Adjust the "Source" to **My IP** for each rule
 
-![Add storage](../assets/images/aws-security-group.png)
+![Add storage](assets/images/aws-security-group.png)
 
 Now, click **Review and Launch** to go review our instance before launching. 
 
@@ -74,7 +74,7 @@ Now, click **Review and Launch** to go review our instance before launching.
 
 Our instance setup should now look similar to the below.
 
-![Review ](../assets/images/aws-review-instance-launch.png)
+![Review ](assets/images/aws-review-instance-launch.png)
 
 
 * Click "Launch" which should then ask you to create a new key pair
@@ -85,7 +85,7 @@ Our instance setup should now look similar to the below.
 * Beside "The following instance launches have been initiated" you should see your new instance ID. Click the ID to go to the **Instances** page
 * You can find the IPv4 address of the instance in the lower **Description** panel.
 
-![aws now launching](../assets/images/aws-now-launching.png)
+![aws now launching](assets/images/aws-now-launching.png)
 
 You should then be able to use your downloaded `.pem` key to then SSH into the instance to check that everything is setup.
 
@@ -129,7 +129,7 @@ First, open up VSCode, and we'll install the <a target="_blank" href="https://ma
 - Search for `remote-ssh`
 - install the plugin
 
-![VSCode plugin ](../assets/images/vscode-install-plugin.png)
+![VSCode plugin ](assets/images/vscode-install-plugin.png)
 
 Before we connect to the host in VSCode, let's open the SSH config file, to add this instance to our SSH Config, to easily allows VSCode to connect to our instance.
 
@@ -164,7 +164,7 @@ At the bottom the VSCode window we'll select the "Terminal" tab, and click the "
 * Let's test that we can run a job with  `foundations submit scheduler . driver.py`
 * You should see this job in the Atlas GUI
 
-![vscode shell ](../assets/images/vscode-bash-submit.png)
+![vscode shell ](assets/images/vscode-bash-submit.png)
 
 We're now set! You can now open the files and adjust as you wish, or you can start on your own project. To understand more about the `auction_price_regression` project, you can check out the full tutorial in the **Tutorial** section of the docs.
 
@@ -179,7 +179,7 @@ To stop or terminate the instance:
 * Go to your AWS console
 * Right click on our P2 instance > "Instance State" > either Terminate or Stop
 
-![Review ](../assets/images/aws-stop-instance.png)
+![Review ](assets/images/aws-stop-instance.png)
 
 That's it! We've successfully spun up a GPU instance, and run jobs remotely, from VSCode.
 

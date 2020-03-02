@@ -17,7 +17,7 @@ print("Hello world!")
 Let's run this script using `python main.py ` and observe what happens in the GUI.
 We see that a new project called `my_atlas_project` has been created with a single *job* inside.    
 
-![Job Details](../../assets/images/my_atlas_project.png)
+![Job Details](../assets/images/my_atlas_project.png)
 
 **This import statement is all that's needed to get started with experiment version control.**
 Everytime you execute this script, a new Job UUID associated with that run will be generated and the project directory will be versioned and archived.
@@ -56,7 +56,7 @@ print("Complete!")
 
 Let's run this script again and take a look at the experiment in the GUI. We'll see a running job in the GUI which should complete after a few minutes. We'll also see the `max_iter` hyper-parameter logged as well as the `accuracy` metric logged once the job is complete.
 
-![metrics](../../assets/images/param_metric_logging.png)
+![metrics](../assets/images/param_metric_logging.png)
 
 We use the `(key, value)` syntax to log hyperparameters and metrics. Please refer to the SDK Reference for additional information on how to log hyper-parameters and metrics.
 
@@ -90,7 +90,7 @@ print("Complete!")
 
 Now we'll see tags appear next to our jobs. Multiple tags can be added to experiments in the same way to quickly gain context on the experiment
 
-![Tags](../../assets/images/tags.png)
+![Tags](../assets/images/tags.png)
 
 ### Saving artifacts
 Artifacts associated with experiments can include images, audio files, text files and python objects. Images & audio can be viewed directly in the GUI and all artifacts can be downloaded from the GUI by click on the job detail icon on the right hand side of the screen.
@@ -128,7 +128,7 @@ foundations.save_artifact("model.pkl", "Model")
 print("Complete!")
 ```
 
-![Saved Artifact](../../assets/images/saved_artifact.png)
+![Saved Artifact](../assets/images/saved_artifact.png)
 
 ### Retrieving job archives
 
