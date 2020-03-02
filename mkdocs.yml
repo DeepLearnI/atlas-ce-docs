@@ -1,6 +1,7 @@
 site_name: Foundations Atlas
 docs_dir: docs/api_docs/sources
 site_description: 'Documentation for Foundations Atlas, a platform for end-to-end machine learning. Created by Dessa.'
+
 markdown_extensions:
   - admonition
   - codehilite:
@@ -23,14 +24,15 @@ markdown_extensions:
 theme:
   name: 'material'
   custom_dir: 'theme'
-  logo: 'lockup_v2_white.png'
+  logo: 'favicon.png'
   favicon: 'favicon.ico'
   palette:
-    primary: "indigo"
+    primary: 'black'
     accent: 'light blue'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
+
 
 extra:
   social:
