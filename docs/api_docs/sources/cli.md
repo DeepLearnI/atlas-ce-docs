@@ -52,7 +52,7 @@ This submits a `foundations` job to the scheduler. Running this command will add
 
 * **`--entrypoint`**: The command to run the job. This defaults to `python`, and corresponds to the concept of `ENTRYPOINT` in Docker.
 * **`--project-name`**: The name of the project that this job belongs to. By default, this is the name of the project directory.
-* **`--num-gpus`**: Specifies the number of GPUs to be allocated when running a job. By default 0 GPUs are specified. *Note: Atlas CE supports up to 1 GPU.*
+* **`--num-gpus`**: Specifies the number of GPUs to be allocated when running a job. By default 0 GPUs are specified.
 * **`--ram`**: The amount of RAM (in GB) to allocate to running this job. By default, there is no limit on the amount of RAM a job can use.
 * **`--stream-job-logs`**: Whether to stream the logs from the running jobs into the current terminal. This is true by default.
 

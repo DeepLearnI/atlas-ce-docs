@@ -1,7 +1,7 @@
 # FAQ
 
 ### 1. Docker credentials error during installation on OSX/Windows
-The Atlas CE installer pulls docker images from Google Container Registry during installation.
+The Atlas installer pulls docker images from Google Container Registry during installation.
 This can cause the following error on some OSX & Windows systems depending on your docker setup:
 `docker.credentials.error.InitializationError: docker-credential-desktop not installed or not available in PATH`
 

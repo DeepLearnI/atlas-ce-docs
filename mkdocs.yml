@@ -47,7 +47,7 @@ dev_addr: '0.0.0.0:8000'
 
 nav:
   - Home: index.md
-  - Atlas CE Quickstart Guide: ce-quickstart-guide.md
+  - Atlas Quickstart Guide: ce-quickstart-guide.md
   - Walkthrough:
       - Introduction: atlas-modes/modes.md
       - Execution: atlas-modes/execution.md
@@ -64,7 +64,7 @@ nav:
       - Fake Trump Tweet Classifier Tutorial: tutorials/fake_trump_tutorial.md
       - Image Segmentation Tutorial: tutorials/image_segmentation_tutorial.md
       - Using Atlas with Apache Spark: https://medium.com/dessa-news/using-foundations-atlas-with-spark-to-create-an-end-to-end-big-data-machine-learning-development-c0220de01a88
-  - Atlas CE Cloud Installation:
+  - Atlas Cloud Installation:
     - AWS: atlas-on-aws.md
     - GCP: atlas-on-gcp.md
   - Atlas Team Edition:

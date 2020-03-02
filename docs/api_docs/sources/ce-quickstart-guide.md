@@ -1,4 +1,4 @@
-# Atlas CE Quick Start Guide
+# Atlas Quick Start Guide
 
 ### Installation
 
@@ -11,15 +11,15 @@
  3. \>5GB of free machine storage
  4. The `atlas_ce_installer.py` file
 
-Atlas CE currently supports Mac OSX, Linux & Windows 10.
+Atlas currently supports Mac OSX, Linux & Windows 10.
 
 !!! tip 
-    Windows 10 Home edition users can set up Atlas CE by installing [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/).
+    Windows 10 Home edition users can set up Atlas by installing [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/).
     Windows 10 Enterprise edition users should use [Docker for Windows](https://docs.docker.com/docker-for-windows/).
 
 **Common**
 
- 1. Create a new, empty directory where you will install Atlas CE.
+ 1. Create a new, empty directory where you will install Atlas.
 
  2. Copy the `atlas_ce_installer.py` file into this directory.
 
@@ -65,14 +65,14 @@ Atlas CE currently supports Mac OSX, Linux & Windows 10.
 
 
 !!! tip
-    The longest part of the script is pulling the Atlas CE docker images, if the script fails at this point, 
+    The longest part of the script is pulling the Atlas docker images, if the script fails at this point, 
     you can re-run it using `python atlas_ce_installer.py -dp` to skip over the download and unpacking and go directly to the image pull.
 
 ---
 
 ### Start-up
 
-After completing the [installation section](#installation), you can do the following to start Atlas CE:
+After completing the [installation section](#installation), you can do the following to start Atlas:
 
  1. Validate that you are in the same Python environment that was used to run the installation script.
  2. Run `atlas-server start`.
@@ -87,7 +87,7 @@ After completing the [installation section](#installation), you can do the follo
 
 ### Hello Atlas
 
-After completing the [start-up section](#start-up), follow the next few steps to launch your first Atlas CE job:
+After completing the [start-up section](#start-up), follow the next few steps to launch your first Atlas job:
 
  1. Navigate to where you'd like to create your Atlas project directory.
  2. Ensure that you are in the environment that was used during installation.

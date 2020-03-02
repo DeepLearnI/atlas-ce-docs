@@ -1,6 +1,6 @@
-# Atlas CE on GCP
+# Atlas on GCP
 
-Being able to run Atlas CE on GCP means access to GPUs, and more importantly faster model results. In this tutorial we'll walk through setting up and running jobs on GCP with Atlas CE, as well as running experiments from VSCode.
+Being able to run Atlas on GCP means access to GPUs, and more importantly faster model results. In this tutorial we'll walk through setting up and running jobs on GCP with Atlas, as well as running experiments from VSCode.
 
 Requirements
 
@@ -20,7 +20,7 @@ Click the **"Launch on compute engine"** button to start setup.
 
 ### Step 2: Deployment settings
 
-There's a few updates we'll need to make to the instance before we deploy it. The below settings are optimal for trying out Atlas CE, but if you're starting a bigger project, feel free to add more compute, memory, or disk space.
+There's a few updates we'll need to make to the instance before we deploy it. The below settings are optimal for trying out Atlas, but if you're starting a bigger project, feel free to add more compute, memory, or disk space.
 
 * Set a deployment name
 * Zone: select a zone that with K80 GPUs available (for our use, we'll select **us-east1-c**)
@@ -39,7 +39,7 @@ We should now be good to spin up the instance, just click the **Deploy** button.
 
 It will take about 5 minutes for the instance to initialize.
 
-### Step 3: Setup Atlas CE
+### Step 3: Setup Atlas
 
 Use the provided gcloud CLI command to SSH into the instance. It should look similar to:
 
@@ -47,13 +47,13 @@ Use the provided gcloud CLI command to SSH into the instance. It should look sim
 
 We can take this command and run it in our terminal to SSH into the instance. Make sure you have the gcloud CLI tool setup prior to doing this.
 
-Once inside the instance we now need to install Atlas CE. We've put together a script that does a lot of the leg work (create environments and installing Atlas CE).
+Once inside the instance we now need to install Atlas. We've put together a script that does a lot of the leg work (create environments and installing Atlas).
 
-* To get the script, we'll run `wget https://gist.githubusercontent.com/pippinlee/d2b98a7ff058e66b558bfb331f3a4635/raw/36e6119935180e232437107fd8a77e7c2a40841b/install_atlas.sh`. This will give us the Atlas CE installer file
-* Running `bash install_atlas.sh` will install Atlas CE and start it running within Docker
+* To get the script, we'll run `wget https://gist.githubusercontent.com/pippinlee/d2b98a7ff058e66b558bfb331f3a4635/raw/36e6119935180e232437107fd8a77e7c2a40841b/install_atlas.sh`. This will give us the Atlas installer file
+* Running `bash install_atlas.sh` will install Atlas and start it running within Docker
 * Next we'll source the conda environment created by Atlas by running `source ~/.bashrc` and then `conda activate atlas_ce_env`
 
-Now Atlas CE is running and you'll have access to both the `foundations` and `atlas-server` CLI.
+Now Atlas is running and you'll have access to both the `foundations` and `atlas-server` CLI.
 
 You should now be able to view the Atlas Dashboard by going in your browser to `<external.ip.of.your.instance>:5555`. If you ever need to find the IP of your instance you can find it on your GCP console <a target="_blank" href="https://console.cloud.google.com/compute/instances">instance list</a>).
 
@@ -61,15 +61,15 @@ You should now be able to view the Atlas Dashboard by going in your browser to `
 
 In the dashboard's project page your should see a project that has been run once. These projects were baked into the script to help get started.
 
-### Run our first Atlas CE job
+### Run our first Atlas job
 
-If this is your first time using Atlas CE, you can try run a simple job with the following steps. Or you can just skip ahead to setting up GCP to remotely work with VSCode below.
+If this is your first time using Atlas, you can try run a simple job with the following steps. Or you can just skip ahead to setting up GCP to remotely work with VSCode below.
 
 We can run one of our demo projects to try out how the `foundations` CLI works.
 
 * `cd atlas-tutorials/auction_price_regression_tutorial`
 * Run `foundations submit scheduler . driver.py`
-* Go back to the Atlas CE GUI in your browser, and you should see the new job we've just run
+* Go back to the Atlas GUI in your browser, and you should see the new job we've just run
 
 For more information on the Foundations CLI read our CLI section, or run `foundations --help`.
 
@@ -120,7 +120,7 @@ At the menu bar at the top of VSCode window we'll select the "Terminal" > "New T
 * cd into `atlas-tutorials/auction_price_regression_tutorial`
 * Activate the environment with `conda activate atlas_ce_env`
 * Let's test that we can run a job with  `foundations submit scheduler . driver.py`
-* You should see this job in the Atlas CE GUI
+* You should see this job in the Atlas GUI
 
 ![vscode shell ](../assets/images/gcp-vscode.png)
 
@@ -141,8 +141,8 @@ To stop or terminate the instance:
 
 That's it, we've successfully spun up a GPU instance and run a few jobs remotely from VSCode!
 
-You can now either start your own projects, or look at some of our more advance tutorials to explore more of Atlas CE.
+You can now either start your own projects, or look at some of our more advance tutorials to explore more of Atlas.
 
 ### Questions
 
-If you have any thoughts or feedback about setting up Atlas CE on GCP we're always happy to help answer questions on our <a href="https://dessa-community.slack.com/join/shared_invite/enQtNzY5MTA3OTMxNTkwLWUyZDYzM2JmMDk0N2NjNjVhZDU5NTc1ODEzNzJjMzRlMDcyYmY3ODI1ZWMxYTQ3MzdmNjcyOTVhMzg2MjkwYmY" target="_blank">Dessa Community Slack</a>!
+If you have any thoughts or feedback about setting up Atlas on GCP we're always happy to help answer questions on our <a href="https://dessa-community.slack.com/join/shared_invite/enQtNzY5MTA3OTMxNTkwLWUyZDYzM2JmMDk0N2NjNjVhZDU5NTc1ODEzNzJjMzRlMDcyYmY3ODI1ZWMxYTQ3MzdmNjcyOTVhMzg2MjkwYmY" target="_blank">Dessa Community Slack</a>!

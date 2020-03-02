@@ -8,7 +8,7 @@ The contents of the users current working directory are moved to an Atlas workin
 The results are then stored in an archive location that can be accessed using the CLI.    
 
 !!! note
-    Atlas Community Edition comes with a Docker based local scheduler out of the box. The installation also sets up a configuration file called `scheduler.config.yaml`, this is the `scheduler_config`
+    Atlas comes with a Docker based local scheduler out of the box. The installation also sets up a configuration file called `scheduler.config.yaml`, this is the `scheduler_config`
     that is used for most CLI and SDK commands.
     
     See [here](https://dessa-atlas-community-docs.readthedocs-hosted.com/en/latest/atlas-modes/scheduling/#submitting-to-a-remote-scheduler) to see how you can create a new scheduler config to launch to a remote machine.  
