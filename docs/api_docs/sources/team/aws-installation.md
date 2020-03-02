@@ -1,6 +1,10 @@
-# Atlas Team AWS Setup Instructions
+# Atlas Multinode & Multiuser AWS Setup Instructions
 
-The following document outlines how to setup and deploy a multi-node compute system that runs Atlas Team, including the Keycloak authentication system to AWS.
+The following document outlines how to setup and deploy a multi-node compute system that runs Atlas including the Keycloak authentication system to AWS.
+
+This setup is ideal for teams of Machine Learning Engineers who want to run Deep Learning jobs on an AWS compute cluster. 
+
+If you are looking to setup _only for yourself_ without an authentication system follow the steps [here](aws-installation.md).
 
 ## Prerequisite
 * AWS account for admin

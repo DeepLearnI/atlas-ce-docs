@@ -8,7 +8,7 @@ Requirements
 * gcloud CLI tool installed (<a target="_blank" href="https://cloud.google.com/sdk/downloads/">download</a>)
 
 
-### Step 1: 
+### Step 1: Setting up Deep Learning VM 
 
 First let's go to the GCP developer console, sign in, and then we'll create a new instance using the: <a target="_blank" href="https://console.cloud.google.com/marketplace/details/click-to-deploy-images/deeplearning">GCP Deep Learning VM</a>. It will prompt us to select a project, and select the appropriate project for the instance to run under.
 
@@ -47,11 +47,62 @@ Use the provided gcloud CLI command to SSH into the instance. It should look sim
 
 We can take this command and run it in our terminal to SSH into the instance. Make sure you have the gcloud CLI tool setup prior to doing this.
 
-Once inside the instance we now need to install Atlas. We've put together a script that does a lot of the leg work (create environments and installing Atlas).
+Once inside the instance we now need to install Atlas. 
 
-* To get the script, we'll run `wget https://gist.githubusercontent.com/pippinlee/d2b98a7ff058e66b558bfb331f3a4635/raw/36e6119935180e232437107fd8a77e7c2a40841b/install_atlas.sh`. This will give us the Atlas installer file
-* Running `bash install_atlas.sh` will install Atlas and start it running within Docker
-* Next we'll source the conda environment created by Atlas by running `source ~/.bashrc` and then `conda activate atlas_ce_env`
+We've put together a script that does a lot of the leg work (create environments and installing Atlas).
+
+1. Save the following script as a file **install_atlas.sh**
+```
+#!/bin/bash
+
+wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh -O ~/miniconda.sh
+bash $HOME/miniconda.sh -b -p $HOME/miniconda
+eval "$($(pwd)/miniconda/bin/conda shell.bash hook)"
+conda init
+source ~/.bashrc
+
+# create conda env for atlas installation if not already exists
+if [[ $(conda env list | grep atlas_ce_env | awk '{print $1}') != 'atlas_ce_env' ]]; then
+   conda update -n base -c defaults conda --yes
+   conda create -n atlas_ce_env python=3.6 --yes
+fi
+
+if [[ `which python` != '$HOME/miniconda/bin/python' ]]; then
+  # activate the environment
+  eval "$(conda shell.bash hook)"
+  conda activate atlas_ce_env
+fi
+
+echo "using python from `which python`"
+
+if [ ! -f atlas_ce_installer.py ]; then
+   wget https://s3.amazonaws.com/foundations-public/atlas_ce_installer.py
+fi
+
+MAIN_PATH=`which python | grep -o '^.*atlas_ce_env'`/lib/python3.6/site-packages/atlas-server/
+
+if [ ! -d ${MAIN_PATH} ]; then
+   yes | python atlas_ce_installer.py
+
+ # ip fix
+ echo -e "import urllib.request\nexternal_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8')" > ${MAIN_PATH}/new_main.py
+ cat ${MAIN_PATH}/__main__.py >> ${MAIN_PATH}/new_main.py
+ sed -i 's/"localhost"/f"\{external_ip\}"/g' ${MAIN_PATH}/new_main.py
+ sed -i 's@localhost:@\{external_ip\}:@g' ${MAIN_PATH}/new_main.py
+ mv ${MAIN_PATH}/new_main.py ${MAIN_PATH}/__main__.py
+fi
+
+if [[ `sudo lsof -i:5555` == '' ]]; then
+   atlas-server start > /dev/null 2>&1 &
+fi
+
+cd
+mkdir atlas-tutorials && cd atlas-tutorials
+git clone https://github.com/DeepLearnI/auction-price-regression-tutorial.git
+
+```
+2. Next up, running `bash install_atlas.sh` will install Atlas and start it running within Docker
+3. Next we'll source the conda environment created by Atlas by running `source ~/.bashrc` and then `conda activate atlas_ce_env`
 
 Now Atlas is running and you'll have access to both the `foundations` and `atlas-server` CLI.
 

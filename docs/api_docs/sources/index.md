@@ -10,9 +10,9 @@
 [![Follow Dessa](https://img.shields.io/twitter/follow/dessa?label=Follow%20Dessa&style=social)](https://twitter.com/dessa)
 
 
-## What is Atlas?
+## Atlas Documentation 
 
-Atlas was built by our machine learning engineers to dramatically reduce the model development time, from the experimentation workflow to production.
+Atlas is a flexible Machine Learning platform that consists of a Python SDK, CLI, GUI & Scheduler to help Machine Learning Engineering teams dramatically reduce the model development time & reduce effort in managing infrastructure.
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
   <iframe src="https://www.youtube.com/embed/YnwtO48UYAU?start=2" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
@@ -44,10 +44,12 @@ Atlas consists of the following core modules:
 
 You can also check out the [CLI](cli.md) and the [SDK](sdk-reference/SDK.md) reference documentation to find further information.
 
-To learn more about the entirety of the Atlas platform, including Atlas Enterprise Edition, and how we can accommodate your needs, please reach out to us [here](https://dessa.com/contact/).
+## Join the community 
+
+Want to contribute to Atlas? or just want to get in touch with Atlas users and Dessa Deep Learning Engineers? Join our community Slack [here](https://join.slack.com/t/dessa-community/shared_invite/enQtNzY5ODkxOTc3OTkwLTk4MTg5NmNkOTQ5OWVjNjk2YzY0OWJlNDkwNDlhY2NmNTQzNmRmYjkxNzc2N2JiOTYxZGVkMmFiMjRhYThiYzM). 
+
+Prefer discussing over e-mail? Send us a message [here](https://dessa.com/contact/).
 
 ## License
 
-Copyright (C) DeepLearning Financial Technologies Inc. - All Rights Reserved
-
-Unauthorized copying, distribution, reproduction, publication, use of this library, via any medium is strictly prohibited. Proprietary and confidential.
+We ❤️ open source, Atlas is licensed using the Apache 2.0 License. To contribute to Atlas, get started (here)[TODO ADD LINK TO ISSUES]

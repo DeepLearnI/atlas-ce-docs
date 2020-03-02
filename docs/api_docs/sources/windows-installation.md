@@ -1,46 +1,32 @@
-# Atlas Quick Start Guide
+# Windows Installation
 
 ### Installation
 
 *Estimated time: 3 minutes*
 
-**Prerequisites**
+#### Prerequisites
 
- 1. Docker version \>18.09 ([Docker installation instructions](https://docs.docker.com/install/))
+ 1. Docker version \>18.09
+    1. Windows 10 Home edition users can set up Atlas by installing [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/).
+    2. Windows 10 Enterprise edition users should use [Docker for Windows](https://docs.docker.com/docker-for-windows/).
  2. Python \>=3.6
  3. \>5GB of free machine storage
- 4. The `atlas_ce_installer.py` file
+ 4. The `atlas_installer.py` file.
+    - Download the latest release from the [GitHub releases](https://github.com/dessa-research/atlas/releases)
 
-Atlas currently supports Mac OSX, Linux & Windows 10.
-
-!!! tip 
-    Windows 10 Home edition users can set up Atlas by installing [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/).
-    Windows 10 Enterprise edition users should use [Docker for Windows](https://docs.docker.com/docker-for-windows/).
-
-**Common**
+#### Steps
 
  1. Create a new, empty directory where you will install Atlas.
 
- 2. Copy the `atlas_ce_installer.py` file into this directory.
+ 2. Copy the `atlas_installer.py` file into this directory.
 
  3. Create and activate a Python \>=3.6 virtual environment using 
  [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands)
  or [venv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
  to minimize dependency issues.
-
- 4. Follow you OS-specific instructions below.
-
-**Linux/OSX**
-
- 1. Run the install script with `python atlas_ce_installer.py`.
- 
-**Windows 10**
-
- 1. Install the following python package into the environment created in step 3: `pip install pypiwin32==223`
-
- 2. Run the install script with `python atlas_ce_installer.py`
-
- 3. [Windows 10 Home only]: 
+ 4. Install the following python package into the environment created in step 3: `pip install pypiwin32==223`
+ 5. Run the install script with `python atlas_installer.py`
+ 6. _Windows 10 Home only_: 
     - Open Oracle VirtualBox.
     - Right-click on the docker VM and click on `Settings`.
     - Select 'Network' in the configuration pane, expand the `Advanced` section and click on `Port Forwarding`.
@@ -54,21 +40,6 @@ Atlas currently supports Mac OSX, Linux & Windows 10.
 | Archive | TCP | 127.0.0.1 | 5557 |  | 5557 |
 | Tboard | TCP | 127.0.0.1 | 5959 |  | 5959 | 
 
-**Python SDK Only**
-
- 1. Run the install script with `python atlas_ce_installer.py -ia`
-
----
-
-!!! tip 
-    Running `python atlas_ce_installer.py --help` will give you troubleshooting advice if the script isn't working as expected.
-
-
-!!! tip
-    The longest part of the script is pulling the Atlas docker images, if the script fails at this point, 
-    you can re-run it using `python atlas_ce_installer.py -dp` to skip over the download and unpacking and go directly to the image pull.
-
----
 
 ### Start-up
 
@@ -76,9 +47,9 @@ After completing the [installation section](#installation), you can do the follo
 
  1. Validate that you are in the same Python environment that was used to run the installation script.
  2. Run `atlas-server start`.
- 
-!!! tip
-    You can also start Atlas Server with GPU support by running `atlas-server start -g`. This will allow Atlas to use all CUDA-enabled GPUs on your system.  
+
+#### GPU Mode
+If you installed Atlas with GPU support, you can start the Atlas server in GPU mode by running `atlas-server start -g`. This will allow Atlas to use all CUDA-enabled GPUs on your system.  
  
 !!! success
     Validate that the GUI is running by going to the [GUI](http://localhost:5555). This is your centralized location to track all of your experiments.

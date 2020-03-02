@@ -1,6 +1,6 @@
-# Atlas Team On Premise Instructions
+# Atlas Multinode On Premise Installtion
 
-The following document outlines how to setup and deploy a multi-node compute system that runs Atlas Team, including Keycloak backed authentication, to an on premises cluster.
+The following document outlines how to setup and deploy a multi-node compute system that runs Atlas, including Keycloak backed authentication, to an on premises cluster.
 
 At a high level, the goals are as follows:
 
@@ -14,6 +14,8 @@ At a high level, the goals are as follows:
 
 * Have a user interact with the system
 
+This setup is ideal for teams of Machine Learning Engineers who want to share resources and run Deep Learning jobs an on-premise compute cluster. 
+
 ## Prerequisites
 
 * A networked file system to use as a shared configuration location for all nodes
@@ -22,13 +24,13 @@ At a high level, the goals are as follows:
 
 * 1 or more nodes to be used as worker instances
 
-## 1. Setup the master node
+## Setup the master node
 
 ### Installing and setting up Atlas
 
 1. SSH into the machine to be used as the master instance
 
-2. Download the provided files onto the machine (atlas_installer.py and atlas_team.tgz)
+2. (Download)[https://github.com/dessa-research/atlas/releases] the installer file (atlas_installer.py) on to your machine.
 
 3. Create a conda environment (e.g. `conda create -y -n atlas-team python=3.6.8`)
 
@@ -121,11 +123,11 @@ Password: `test`
 
 4. Provision Atlas users ("Atlas" realm > Users > View all users) 
 
-## 2. Setup worker node
+## Setup worker node
 
 1. SSH into the machine to be used as a worker instance
 
-2. Download the provided files onto the machine (atlas_installer.py and atlas_team.tgz)
+2. [Download]() the installer file atlas_installer.py to your machine.
 
 3. Create a conda environment (e.g. `conda create -y -n atlas-team python=3.6.8`)
 
@@ -156,7 +158,7 @@ Password: `test`
 !!! note "GPUs"
     To use GPUs, you can use `atlas-server start -g` as documented [here](https://dessa-atlas-community-docs.readthedocs-hosted.com/en/latest/atlas-modes/gpu/).
     
-## 3. Setup users client
+## Setup users client
 
 Once both the master and worker(s) instances are setup to handle job submission, we can now set up users to be able to submit jobs. The user will need to install both Atlas, and have the proper submission configuration file.
 
@@ -166,7 +168,7 @@ The following steps outline the configurations for a user to have on their clien
 
 1. (As an admin) Create a user account in the Keycloak admin console (`https://<master_node_external_ip>:8443`) by going to "Atlas" realm > Users > Add User
 
-2. (As an admin) Give the user the provided files (atlas_installer.py and atlas_team.tgz)
+2. (As an admin) Give the user the provided installer file (atlas_installer.py) from [here](https://github.com/dessa-research/atlas/releases)
 
 3. (As an admin) Give the user the configuration file on the master machine under `~/.foundations/config/submission/scheduler.config.yaml`
 
@@ -184,7 +186,7 @@ The following steps outline the configurations for a user to have on their clien
 
 10. (As a user) Put the configuration file in `~/.foundations/config/submission/team.config.yaml`
 
-## 4. Test job submission
+## Test job submission
 
 1. Activate the conda environment that you ran the atlas_installer.py in (e.g. `conda activate atlas-team`)
 
