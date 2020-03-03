@@ -1,6 +1,6 @@
-# Atlas CE on AWS
+# Atlas on AWS
 
-Being able to run Atlas CE on AWS means access to GPUs and faster results. In this tutorial we'll walk through setting up and running jobs on AWS with Atlas CE.
+Being able to run Atlas on AWS means access to GPUs and faster results. In this tutorial we'll walk through setting up and running jobs on AWS with Atlas.
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
   <iframe src="https://www.youtube.com/embed/fs4ivj5lp64?start=9" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
@@ -22,14 +22,14 @@ Go to Services > EC2, then click the **"Launch Instance"** button to start setup
 
 ### Step 1: Choose an Amazon Machine Image (AMI)
 
-Let's use the custom Atlas CE AMI, to do this:
+Let's use the custom Atlas AMI, to do this:
 
 * Select "Community AMIs" on the left sidebar
-* Search for "Atlas CE"
+* Search for "Atlas"
 * Select the AMI that says "Atlas Community Edition on Deep Learning AMI for Ubuntu
 "
 
-Our custom AMI is just AWS's Deep Learning AMI (Deep Learning AMI (Ubuntu 16.04) Version 24.2) with Atlas CE added on top of it.
+Our custom AMI is just AWS's Deep Learning AMI (Deep Learning AMI (Ubuntu 16.04) Version 24.2) with Atlas added on top of it.
 
 !!! note
     Once the instance has been finalized and spun up, costs will be incurred. Please follow the tear down steps at the bottom of this guide to minimize this.
@@ -38,7 +38,7 @@ Our custom AMI is just AWS's Deep Learning AMI (Deep Learning AMI (Ubuntu 16.04)
 
 For this page we'll select a *p2.xlarge* instance type, as we want some a GPU to train with. We recommend a P2 instance as it a good balance between performance and cost, but if you are looking for more power you can select a P3 instance.
 
-![Instance type](../assets/images/aws-instance-type.png)
+![Instance type](assets/images/aws-instance-type.png)
 
 Make sure to click **"Next: Configure Instance Details"** to continue provisioning the instance.
 
@@ -51,7 +51,7 @@ Make sure to click **"Next: Configure Instance Details"** to continue provisioni
 
 We recommend increasing the size of your storage to at least 250GB, as the base AMI image is already ~80GB. Adjust as needed for your expected data.
 
-![Add storage](../assets/images/aws-add-storage.png)
+![Add storage](assets/images/aws-add-storage.png)
 
 ### Step 5: Add Tags
 
@@ -66,7 +66,7 @@ To allow for this:
 * Add 3 new rules, with ports for 5555, 5557, and 5959
 * Adjust the "Source" to **My IP** for each rule
 
-![Add storage](../assets/images/aws-security-group.png)
+![Add storage](assets/images/aws-security-group.png)
 
 Now, click **Review and Launch** to go review our instance before launching. 
 
@@ -74,18 +74,18 @@ Now, click **Review and Launch** to go review our instance before launching.
 
 Our instance setup should now look similar to the below.
 
-![Review ](../assets/images/aws-review-instance-launch.png)
+![Review ](assets/images/aws-review-instance-launch.png)
 
 
 * Click "Launch" which should then ask you to create a new key pair
-* Select "Create a new key pair" and give it the name "atlas-ce" (note: if you've already used this key name before you can either re-use of, or create another unique key name)
+* Select "Create a new key pair" and give it the name "atlas" (note: if you've already used this key name before you can either re-use of, or create another unique key name)
 * Download the key pair
 * Click "Launch Instances"
 * It should then redirect you to the Launch Status page
 * Beside "The following instance launches have been initiated" you should see your new instance ID. Click the ID to go to the **Instances** page
 * You can find the IPv4 address of the instance in the lower **Description** panel.
 
-![aws now launching](../assets/images/aws-now-launching.png)
+![aws now launching](assets/images/aws-now-launching.png)
 
 You should then be able to use your downloaded `.pem` key to then SSH into the instance to check that everything is setup.
 
@@ -95,21 +95,21 @@ Be sure to run `chmod 400 <key_name>.pem` on your key before SSH'ing to give it 
 
 **You should expect to wait ~30 seconds when you first SSH in.**
 
-The instance will run a few commands which includes activating a conda environment that contains `atlas-server` and `foundations`. It also runs `atlas-server` so all the services for Atlas CE are running.
+The instance will run a few commands which includes activating a conda environment that contains `atlas-server` and `foundations`. It also runs `atlas-server` so all the services for Atlas are running.
 
 When you SSH into the instance, `atlas-server` will start, but you can put it into a background process with `ctrl + c`, to then be able to run other commands.
 
-You should also now be able to see the GUI. In your browser go `<ipv4.of.ec2.instance>:5555` and you should see the Atlas CE project page with two projects that have each been run once. These projects were baked into the AMI to help get started.
+You should also now be able to see the GUI. In your browser go `<ipv4.of.ec2.instance>:5555` and you should see the Atlas project page with two projects that have each been run once. These projects were baked into the AMI to help get started.
 
-### Run our first Atlas CE job
+### Run our first Atlas job
 
-If this is your first time using Atlas CE, you can try run a simple job with the following steps. Or you can just skip ahead to setting up AWS to remotely work with VSCode below.
+If this is your first time using Atlas, you can try run a simple job with the following steps. Or you can just skip ahead to setting up AWS to remotely work with VSCode below.
 
 We can run one of our demo projects to try out how the `foundations` CLI works.
 
 * `cd atlas_tutorials/auction_price_regression_tutorial`
 * Run `foundations submit scheduler . driver.py`
-* Go back to the Atlas CE GUI in your browser, and you should see the new job we've just run
+* Go back to the Atlas GUI in your browser, and you should see the new job we've just run
 
 For more information on the Foundations CLI read our CLI section, or run `foundations --help`.
 
@@ -129,7 +129,7 @@ First, open up VSCode, and we'll install the <a target="_blank" href="https://ma
 - Search for `remote-ssh`
 - install the plugin
 
-![VSCode plugin ](../assets/images/vscode-install-plugin.png)
+![VSCode plugin ](assets/images/vscode-install-plugin.png)
 
 Before we connect to the host in VSCode, let's open the SSH config file, to add this instance to our SSH Config, to easily allows VSCode to connect to our instance.
 
@@ -162,9 +162,9 @@ At the bottom the VSCode window we'll select the "Terminal" tab, and click the "
 
 * cd into `atlas_tutorials/auction_price_regression_tutorial`
 * Let's test that we can run a job with  `foundations submit scheduler . driver.py`
-* You should see this job in the Atlas CE GUI
+* You should see this job in the Atlas GUI
 
-![vscode shell ](../assets/images/vscode-bash-submit.png)
+![vscode shell ](assets/images/vscode-bash-submit.png)
 
 We're now set! You can now open the files and adjust as you wish, or you can start on your own project. To understand more about the `auction_price_regression` project, you can check out the full tutorial in the **Tutorial** section of the docs.
 
@@ -179,12 +179,12 @@ To stop or terminate the instance:
 * Go to your AWS console
 * Right click on our P2 instance > "Instance State" > either Terminate or Stop
 
-![Review ](../assets/images/aws-stop-instance.png)
+![Review ](assets/images/aws-stop-instance.png)
 
 That's it! We've successfully spun up a GPU instance, and run jobs remotely, from VSCode.
 
-You can now either start your own projects, or look at some of our more advanced tutorials to explore more of Atlas CE.
+You can now either start your own projects, or look at some of our more advanced tutorials to explore more of Atlas.
 
 ### Questions
 
-If you have any thoughts or feedback about setting up Atlas CE on AWS, we're always happy to help answer questions on our <a href="https://dessa-community.slack.com/join/shared_invite/enQtNzY5MTA3OTMxNTkwLWUyZDYzM2JmMDk0N2NjNjVhZDU5NTc1ODEzNzJjMzRlMDcyYmY3ODI1ZWMxYTQ3MzdmNjcyOTVhMzg2MjkwYmY" target="_blank">Dessa Community Slack</a>!
+If you have any thoughts or feedback about setting up Atlas on AWS, we're always happy to help answer questions on our <a href="https://dessa-community.slack.com/join/shared_invite/enQtNzY5MTA3OTMxNTkwLWUyZDYzM2JmMDk0N2NjNjVhZDU5NTc1ODEzNzJjMzRlMDcyYmY3ODI1ZWMxYTQ3MzdmNjcyOTVhMzg2MjkwYmY" target="_blank">Dessa's Community Slack</a>!

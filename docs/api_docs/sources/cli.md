@@ -18,8 +18,6 @@ foundations init <project-name>
 
 This is the recommended way of creating a `foundations` project. A directory will be created containing files for an example `foundations` project with default configuration and source code.
 
-A guide on creating your first `foundations` project can be found [here](old/first_example.md#create-a-new-foundations-project).
-
 **Positional Arguments**
 
 * **`project_name`**: The name of the directory to be created.
@@ -52,7 +50,7 @@ This submits a `foundations` job to the scheduler. Running this command will add
 
 * **`--entrypoint`**: The command to run the job. This defaults to `python`, and corresponds to the concept of `ENTRYPOINT` in Docker.
 * **`--project-name`**: The name of the project that this job belongs to. By default, this is the name of the project directory.
-* **`--num-gpus`**: Specifies the number of GPUs to be allocated when running a job. By default 0 GPUs are specified. *Note: Atlas CE supports up to 1 GPU.*
+* **`--num-gpus`**: Specifies the number of GPUs to be allocated when running a job. By default 0 GPUs are specified.
 * **`--ram`**: The amount of RAM (in GB) to allocate to running this job. By default, there is no limit on the amount of RAM a job can use.
 * **`--stream-job-logs`**: Whether to stream the logs from the running jobs into the current terminal. This is true by default.
 

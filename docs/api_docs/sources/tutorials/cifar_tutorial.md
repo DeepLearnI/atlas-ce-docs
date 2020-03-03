@@ -11,7 +11,7 @@ job can be run in Atlas without modification. However, with minimal changes to t
 Atlas features that will enable us to launch many jobs and organize our model experiments more systematically.
 
 This tutorial assumes that you have already installed Foundations Atlas. If you have not then you can download 
-Foundations Atlas community edition for free from [this link](https://www.atlas.dessa.com/).
+Atlas from [this link](https://www.atlas.dessa.com/).
 
 ## Downloading the code and data
 

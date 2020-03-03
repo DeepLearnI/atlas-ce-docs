@@ -19,7 +19,7 @@ It also includes a pre-trained model and inference code, which you can test on a
 
 ## Setup 
 1. Git Clone this repository.
-2. If you haven't already, install [Foundations Atlas Community Edition](https://www.atlas.dessa.com/?u=fakeaudio).
+2. If you haven't already, install [Atlas](https://www.atlas.dessa.com/?u=fakeaudio).
 3. Once you've installed Foundations Atlas, activate your environment if you haven't already, and navigate to your project folder, and 
 then into the `code` directory.
 4. Run the following line in the terminal to install the required packages: 
